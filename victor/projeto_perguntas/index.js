@@ -1,0 +1,70 @@
+//importando as dependências
+const express = require("express");
+//definindo a porta do servidor
+const porta = 21005;
+const conexao = require("./database/database.js");
+const Pergunta = require("./database/Pergunta.js");
+
+//configurando o aplicativo
+const app = express();
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+//iniciando a conexão com o banco de dados
+conexao
+  .authenticate()
+  .then(() => console.log("Banco de dados conectado com sucesso...."))
+  .catch((error) => {
+    console.log(`Ocorreu um erro durante a conexão: ${error}`);
+  });
+
+//definindo as rotas
+//rota principal
+app.get("/", (req, res) => {
+  Pergunta.findAll({ raw: true, order: [["id", "DESC"]] }).then((perguntas) => {
+    res.render("index", { perguntas: perguntas });
+  });
+});
+//rota perguntas
+app.get("/perguntar", (req, res) => {
+  res.render("perguntar");
+});
+//rota virtual para salvar a pergunta
+app.post("/salvarpergunta", (req, res) => {
+  let titulo = req.body.titulo;
+  let descricao = req.body.descricao;
+  //criando o registro na tabela
+  Pergunta.create({
+    titulo: titulo,
+    descricao: descricao
+  })
+    .then(() => res.redirect("/"))
+    .catch((error) => {
+      console.log(`Ocorreu um erro: ${error}`);
+    });
+});
+
+app.get("/alert", (req, res) => {
+  res.render("alert");
+});
+
+//rota para pergunta unica
+app.get("/pergunta/:id", (req, res) => {
+  let id = req.params.id;
+  Pergunta.findOne({ where: { id: id } }).then((pergunta) => {
+    if (pergunta != undefined) {
+      res.render("pergunta", { pergunta: pergunta });
+    } else {
+      res.redirect("/alert");
+    }
+  });
+});
+
+//iniciando o servidor
+app.listen(porta, (error) => {
+  if (!error) {
+    console.log(`Servidor rodando na porta ${porta}`);
+  }
+});

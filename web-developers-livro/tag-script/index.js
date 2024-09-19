@@ -1,0 +1,1 @@
+101%2 == 0 ? console.log('o numero é par') : console.log('o número é impar')
