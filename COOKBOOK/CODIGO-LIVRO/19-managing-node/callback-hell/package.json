@@ -5,5 +5,8 @@
   "main": "index.js",
   "keywords": [],
   "author": "Adam Scott <hello@adamdscott.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "callback-hell": "file:"
+  }
 }

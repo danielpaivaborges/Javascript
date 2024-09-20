@@ -1,3 +1,4 @@
+
 <%- include('./partials/header.ejs')%>
 
     <body>
@@ -15,8 +16,36 @@
                         </p>
                     </div>
                 </div>
-            </div>
 
+                <div class="card my-3">
+                    <div class="card-header">
+                        <h4>Responder</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/responder" method="POST">
+                            <textarea class="form-control my-3" name="corpo" id="corpo"
+                                placeholder="Digite sua resposta"></textarea>
+                            <button class="btn btn-primary">Enviar Resposta</button>
+                            <input type="text" name="idpergunta" hidden value="<%=pergunta.id%>" id="idpergunta">
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>RESPOSTAS</h3>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                        <%respostas.forEach((resposta)=>{%>
+                            <li>
+                                <%=resposta.corpo%>
+                            </>
+                            <%})%>
+                        </ol>
+                </div>
+
+            </div>
     </body>
 
     <%- include('./partials/footer.ejs')%>

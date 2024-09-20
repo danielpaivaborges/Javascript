@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "got": "^10.2.2",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "restful-api": "file:"
   }
 }

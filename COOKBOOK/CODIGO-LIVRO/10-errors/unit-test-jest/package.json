@@ -16,6 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
-    "@babel/preset-env": "^7.12.16"
+    "@babel/preset-env": "^7.12.16",
+    "unit-test-jest": "file:"
   }
 }

@@ -1,3 +1,10 @@
 body {
     background-color: rgba(131, 173, 240, 0.671);
 }
+
+ol {
+    background-color: rgba(244, 233, 233, 0.589);
+    padding: 10px;
+    padding-left: 25px;
+    border-left: solid 5px green;
+}

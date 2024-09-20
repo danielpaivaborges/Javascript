@@ -10,6 +10,7 @@
   "author": "Adam Scott <hello@adamdscott.com>",
   "license": "ISC",
   "dependencies": {
+    "command-line-args": "file:",
     "yargs": "^16.2.0"
   }
 }

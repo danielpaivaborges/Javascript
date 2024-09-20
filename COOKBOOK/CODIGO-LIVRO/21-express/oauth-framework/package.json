@@ -20,6 +20,7 @@
     "node-twitter-api": "^1.8.0",
     "nodemon": "^2.0.7",
     "oauth": "^0.9.15",
+    "oauth-framework": "file:",
     "passport": "^0.4.1",
     "passport-twitter": "^1.0.4",
     "pug": "^3.0.0",

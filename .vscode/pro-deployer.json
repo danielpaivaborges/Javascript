@@ -1,0 +1,41 @@
+{
+	"enableStatusBarItem": true,
+	"enableQuickPick": true,
+	"uploadOnSave": true,
+	"autoDelete": true,
+	"checkGitignore": false,
+	"activeTargets": [
+		"My SFTP"
+	],
+	"concurrency": 5,
+	"ignore": [
+		".git/**/*",
+		".vscode/**/*"
+	],
+	"include": [],
+	"targets": [
+		{
+			"name": "My SFTP",
+			"type": "sftp",
+			"host": "ftp.everos.com.br",
+			"port": 22,
+			"user": "everos",
+			"password": "root2024",
+			"dir": "/",
+			"baseDir": "/",
+			"privateKey": null,
+			"passphrase": null
+		},
+		{
+			"name": "My FTP",
+			"type": "ftp",
+			"host": "ftp.everos.com.br",
+			"port": 21,
+			"user": "everos",
+			"password": "root2024",
+			"dir": "/",
+			"baseDir": "/",
+			"transferDataType": "binary"
+		}
+	]
+}

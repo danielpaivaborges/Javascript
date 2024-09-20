@@ -9,6 +9,7 @@
   "author": "Adam Scott <hello@adamdscott.com>",
   "license": "ISC",
   "dependencies": {
+    "websockets-server": "file:",
     "ws": "^7.3.0"
   },
   "devDependencies": {

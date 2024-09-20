@@ -9,5 +9,8 @@
     "./module": "./wrapper.mjs"
   },
   "author": "Adam Scott <hello@adamdscott.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bbarray": "file:"
+  }
 }

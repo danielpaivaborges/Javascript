@@ -15,6 +15,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "bundle-js": "file:",
     "dayjs": "^1.8.26",
     "lodash-es": "^4.17.15"
   }

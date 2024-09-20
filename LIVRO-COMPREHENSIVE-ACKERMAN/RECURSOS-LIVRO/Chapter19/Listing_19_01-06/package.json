@@ -10,5 +10,8 @@
   },
   "build": {
     "nwVersion": "0.14.7"
+  },
+  "dependencies": {
+    "helloworld": "file:"
   }
 }

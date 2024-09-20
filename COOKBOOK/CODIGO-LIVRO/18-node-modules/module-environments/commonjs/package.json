@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Adam Scott <hello@adamdscott.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commonjs": "file:"
+  }
 }

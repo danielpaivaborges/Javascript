@@ -12,6 +12,7 @@
   "author": "Adam Scott <hello@adamdscott.com>",
   "license": "ISC",
   "dependencies": {
+    "command-line-utility": "file:",
     "commander": "^4.1.1",
     "puppeteer": "^2.1.1"
   }

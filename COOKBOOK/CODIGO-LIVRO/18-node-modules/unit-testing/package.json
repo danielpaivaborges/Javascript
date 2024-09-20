@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "19-6-unit-testing": "file:"
   }
 }

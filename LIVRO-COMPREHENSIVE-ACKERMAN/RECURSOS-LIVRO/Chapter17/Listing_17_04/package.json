@@ -11,7 +11,8 @@
   ],
   "author": "Philip Ackermann",
   "dependencies": {
-    "lodash": "~4.17.21"
+    "lodash": "~4.17.21",
+    "samplepackage": "file:"
   },
   "devDependencies": {
     "mocha": "~8.4.0"

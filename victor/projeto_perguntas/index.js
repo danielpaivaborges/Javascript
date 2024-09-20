@@ -4,6 +4,7 @@ const express = require("express");
 const porta = 21005;
 const conexao = require("./database/database.js");
 const Pergunta = require("./database/Pergunta.js");
+const Resposta = require("./database/Resposta.js");
 
 //configurando o aplicativo
 const app = express();
@@ -55,11 +56,30 @@ app.get("/pergunta/:id", (req, res) => {
   let id = req.params.id;
   Pergunta.findOne({ where: { id: id } }).then((pergunta) => {
     if (pergunta != undefined) {
-      res.render("pergunta", { pergunta: pergunta });
+      Resposta.findAll({ where: { perguntaId: pergunta.id } }).then(
+        (respostas) => {
+          res.render("pergunta", {
+            pergunta: pergunta,
+            id: id,
+            respostas: respostas
+          });
+        }
+      );
     } else {
       res.redirect("/alert");
     }
   });
+});
+
+//rota para resposta
+app.post("/responder", (req, res) => {
+  let id = req.body.idpergunta;
+  let corpo = req.body.corpo;
+  if(corpo != undefined && corpo != '' ){
+    Resposta.create({ perguntaId: id, corpo: corpo }).then(
+      res.redirect(`/pergunta/${id}`)
+    );
+  }
 });
 
 //iniciando o servidor

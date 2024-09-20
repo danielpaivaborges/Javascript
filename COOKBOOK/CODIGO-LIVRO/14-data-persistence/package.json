@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7"
+  },
+  "dependencies": {
+    "15-data-persistence": "file:"
   }
 }

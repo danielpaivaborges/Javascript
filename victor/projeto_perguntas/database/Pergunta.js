@@ -14,7 +14,7 @@ const Pergunta = conexao.define("perguntas", {
 
 //cria a tabela, caso ela não exista
 Pergunta.sync({ force: false }).then(() =>
-  console.log("Tabela criada com sucesso.")
+  console.log("tabela perguntas criada com sucesso.")
 );
 
 module.exports = Pergunta
