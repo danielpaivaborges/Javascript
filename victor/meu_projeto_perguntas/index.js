@@ -19,7 +19,9 @@ connection.authenticate().then((error) => {
 
 app.get("/", (req, res) => {
   Pergunta.findAll({ raw: true, order: [["id", "DESC"]] }).then((perguntas) => {
-    res.status(200).render("index", { perguntas: perguntas });
+    Resposta.findAll().then((respostas)=>
+      res.status(200).render("index", { perguntas: perguntas, respostas: respostas })
+    );
   });
 });
 
@@ -43,7 +45,7 @@ app.get("/pergunta/:id", (req, res) => {
         idPergunta: id
       }
     }).then((respostas) => {
-      res.render('pergunta', {pergunta: pergunta, respostas: respostas})
+      res.render("pergunta", { pergunta: pergunta, respostas: respostas });
     });
   });
 });
@@ -51,13 +53,19 @@ app.get("/pergunta/:id", (req, res) => {
 app.post("/salvarresposta", (req, res) => {
   let descricao = req.body.descricao;
   let id = req.body.idpergunta;
-  if(descricao != undefined && descricao != ""){
+  if (descricao != undefined && descricao != "") {
     Resposta.create({ idPergunta: id, descricao: descricao }).then(
-        res.redirect("/")
-      );
-  }else{
+      res.redirect("/")
+    );
+  } else {
     res.redirect("/pergunta/" + id);
   }
+});
+
+app.get("/painel", (req, res) => {
+  Pergunta.findAll({ raw: true, order: [["id", "DESC"]] }).then(
+    res.render("painel")
+  );
 });
 
 app.listen(port, (error) => {
