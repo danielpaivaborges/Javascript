@@ -56,7 +56,7 @@ app.get("/pergunta/:id", (req, res) => {
   let id = req.params.id;
   Pergunta.findOne({ where: { id: id } }).then((pergunta) => {
     if (pergunta != undefined) {
-      Resposta.findAll({ where: { perguntaId: pergunta.id } }).then(
+      Resposta.findAll({ where: { idPergunta: pergunta.id } }).then(
         (respostas) => {
           res.render("pergunta", {
             pergunta: pergunta,
@@ -76,7 +76,7 @@ app.post("/responder", (req, res) => {
   let id = req.body.idpergunta;
   let corpo = req.body.corpo;
   if(corpo != undefined && corpo != '' ){
-    Resposta.create({ perguntaId: id, corpo: corpo }).then(
+    Resposta.create({ idPergunta: id, corpo: corpo }).then(
       res.redirect(`/pergunta/${id}`)
     );
   }

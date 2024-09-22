@@ -2,11 +2,11 @@ const Sequelize = require("sequelize");
 const conexao = require("./database");
 
 const Resposta = conexao.define("respostas", {
-  corpo: {
+  descricao: {
     type: Sequelize.TEXT,
     allowNull: false
   },
-  perguntaId: {
+  idPergunta: {
     type: Sequelize.INTEGER,
     allowNull: false
   }
