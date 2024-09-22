@@ -1,0 +1,50 @@
+<%- include('./partials/header.ejs')%>
+
+    <body>
+        <%- include('./partials/navbar.ejs')%>
+            <div class="container">
+                <div>
+                    <h1 class="text-white text-center">Pergunta</h1>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <%=pergunta.titulo%>
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <%=pergunta.descricao%>
+
+                            <hr>
+                            <form action="/salvarresposta" method="POST">
+                                <label for="descricao">Resposta</label>
+                                <input class="form-control" type="text" name="descricao" id="descricao"
+                                    placeholder="Escreva sua resposta: ">
+                                <input class="form-control" type="text" name="idpergunta" id="idpergunta"
+                                    value="<%=pergunta.id%>" hidden>
+
+                                <button class="btn btn-primary my-3">Responder</button>
+                            </form>
+                    </div>
+                </div>
+                <hr>
+                <%if(respostas.length> 0){%>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Respostas</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <%respostas.forEach((resposta)=>{%>
+                                    <li>
+                                        <%=resposta.descricao%>
+                                    </li>
+                                    <%})%>
+                            </ol>
+                        </div>
+
+                    </div>
+                    <%}%>
+            </div>
+    </body>
+    <%- include('./partials/footer.ejs')%>
