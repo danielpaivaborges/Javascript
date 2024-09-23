@@ -1,0 +1,36 @@
+<%-include('. /partials/header.ejs')%>
+
+    <body>
+        <%-include('. /partials/navbar.ejs')%>
+            <div class="container">
+                <div class="my-3">
+                    <div class="text-center">
+                        <h2 class="text-white">Perguntas &amp Respostas</h2>
+                        <hr>
+                        <a href="/perguntar"><button class="btn btn-primary">Perguntar</button></a>
+                        <hr>
+                    </div>
+                    <%perguntas.forEach((pergunta)=>{%>
+
+                        <div class="card my-3">
+                            <div class="card-header">
+                                <h4>
+                                    <%=pergunta.titulo%>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <%=pergunta.descricao%>
+                            </div>
+                            <div class="card-footer">
+                                <a href="/pergunta/<%-pergunta.id%>"><button class="btn btn-primary">Responder <span
+                                            class="badge text-dark  bg-warning">
+                                            <%=(respostas.filter(resposta=> resposta.idPergunta ==
+                                                pergunta.id)).length%>
+                                        </span></button></a>
+                            </div>
+                        </div>
+                        <%})%>
+                </div>
+            </div>
+    </body>
+    <%-include('. /partials/footer.ejs')%>

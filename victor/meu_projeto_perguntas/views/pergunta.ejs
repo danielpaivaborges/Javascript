@@ -1,0 +1,58 @@
+<%-include('./partials/header.ejs')%>
+
+    <body>
+        <%-include('./partials/navbar.ejs')%>
+            <div class="container">
+                <div class="card my-3">
+                    <div class="card-header text-center">
+                        <h3>Pergunta e Respostas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>
+                                    <%=pergunta.titulo%>
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <%=pergunta.descricao%>
+                            </div>
+                            <div class="card-footer">
+                                <p>
+                                    <a class="btn btn-primary btn-sm" data-bs-toggle="collapse" href="#painelresposta"
+                                        aria-expanded="false" aria-controls="painelresposta">
+                                        Responder
+                                    </a>
+                                </p>
+                                <div class="collapse" id="painelresposta">
+                                    <div class="card card-body">
+                                        <form action="/salvarresposta" method="POST">
+                                            <textarea class="form-control my-3" name="descricao" id="descricao"
+                                                placeholder="Digite aqui sua resposta."></textarea>
+                                            <input type="text" name="id" id="id" value="<%=pergunta.id%>" hidden>
+                                            <button class="btn btn-primary">Enviar Resposta</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Respostas</h4>
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <%respostas.forEach((resposta)=>{%>
+                                <li>
+                                    <%=resposta.descricao%>
+                                </li>
+                                <%})%>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+    </body>
+    <%-include('./partials/footer.ejs')%>
