@@ -1,0 +1,12 @@
+body {
+    background-color: rgba(55, 112, 255, 0.224);
+}
+
+.card-header {
+    background-color: rgba(9, 63, 240, 0.607);
+    color: white;
+}
+
+.card {
+    box-shadow: 5px 6px 15px 0px rgba(0,0,0,0.5);
+}
