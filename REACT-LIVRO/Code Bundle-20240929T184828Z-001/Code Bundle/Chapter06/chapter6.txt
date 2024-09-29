@@ -1,0 +1,336 @@
+
+cd‌‌
+npm‌ ‌init‌ ‌-y‌ ‌
+npm‌ ‌install‌ ‌react‌ ‌react-dom‌ ‌next‌ ‌--save‌ ‌
+
+
+"scripts":‌ ‌{‌ ‌
+  ‌"dev":‌ ‌"next",‌ ‌
+  ‌"build":‌ ‌"next‌ ‌build",‌ ‌
+  ‌"start":‌ ‌"next‌ ‌start"‌ ‌
+}‌ ‌
+{‌ ‌
+  ‌"name":‌ ‌"nextjs",‌ ‌
+  ‌"version":‌ ‌"1.0.0",‌ ‌
+  ‌"main":‌ ‌"index.js",‌ ‌
+  ‌"scripts":‌ ‌{‌ ‌
+"dev":‌ ‌"next",‌ ‌
+"build":‌ ‌"next‌ ‌build",‌ ‌
+"start":‌ ‌"next‌ ‌start"‌ ‌
+  ‌},‌ ‌ ‌
+  ‌"keywords":‌ ‌[],‌ ‌
+  ‌"author":‌ ‌"",‌ ‌
+  ‌"license":‌ ‌"ISC",‌ ‌
+  ‌"description":‌ ‌"",‌ ‌
+  ‌"dependencies":‌ ‌{‌ ‌
+    ‌"next":‌ ‌"^9.1.1",‌ ‌
+    ‌"react":‌ ‌"^16.9.0",‌ ‌
+    ‌"react-dom":‌ ‌"^16.9.0"‌ ‌
+  ‌}‌ ‌
+}‌ ‌
+
+
+//‌ ‌pages/index.js‌ ‌
+export‌ ‌default‌ ‌()‌ ‌=>‌ ‌<h1>Hello‌ ‌World</h1>‌ ‌
+<!DOCTYPE‌ ‌html><html><head><meta‌ ‌charSet="utf-8"/><meta‌ ‌name="viewport"‌ ‌
+content="width=device-width,minimum-scale=1,initial-scale=1"/><meta‌ ‌
+name="next-head-count"‌ ‌content="2"/><link‌ ‌rel="preload"‌ ‌
+href="/_next/static/development/pages/index.js?ts=1569413352906"‌ ‌as="script"/><link‌ ‌
+rel="preload"‌ ‌href="/_next/static/development/pages/_app.js?ts=1569413352906"‌ ‌
+as="script"/><link‌ ‌rel="preload"‌ ‌href="/_next/static/runtime/webpack.js?ts=1569413352906"‌ ‌
+as="script"/><link‌ ‌rel="preload"‌ ‌href="/_next/static/runtime/main.js?ts=1569413352906"‌ ‌
+as="script"/></head><body><div‌ ‌id="__next">‌
+<h1>Hello‌ ‌World</h1>‌
+</div><script‌ ‌
+src="/_next/static/development/dll/dll_397dc449097af0b4e992.js?ts=1569413352906"></script‌
+><script‌ ‌id="__NEXT_DATA__"‌ ‌
+type="application/json">{"dataManager":"[]","props":{"pageProps":{}},"page":"/","query":{},‌
+"buildId":"development","nextExport":true,"autoExport":true}</script><script‌ ‌async=""‌ ‌
+data-next-page="/"‌ ‌
+src="/_next/static/development/pages/index.js?ts=1569413352906"></script><script‌ ‌async=""‌ ‌
+data-next-page="/_app"‌ ‌
+src="/_next/static/development/pages/_app.js?ts=1569413352906"></script><script‌ ‌
+src="/_next/static/runtime/webpack.js?ts=1569413352906"‌ ‌async=""></script><script‌ ‌
+src="/_next/static/runtime/main.js?ts=1569413352906"‌ ‌async=""></script></body></html>‌ ‌
+about.js‌‌
+//‌ ‌pages/about.js‌ ‌
+const‌ ‌AboutMe‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌(‌ ‌
+
+<div‌ ‌id="about-me">‌ ‌
+
+
+<h1>Hey‌ ‌Guys!</h1>‌ ‌
+
+
+<p>My‌ ‌name‌ ‌is‌ ‌Mehul‌ ‌and‌ ‌I'm‌ ‌the‌ ‌author‌ ‌of‌ ‌this‌ ‌book.</p>‌ ‌
+
+
+<p>This‌ ‌book‌ ‌covers‌ ‌React‌ ‌and‌ ‌stuff</p>‌ ‌
+
+
+<p>I‌ ‌like‌ ‌React</p>‌ ‌
+
+</div>‌ ‌
+)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌AboutMe‌
+
+ ‌
+//‌ ‌pages/index.js‌ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+ ‌
+const‌ ‌Home‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<div‌ ‌id="home">‌
+ ‌
+
+<h1>This‌ ‌is‌ ‌a‌ ‌nice‌ ‌homepage</h1>‌ ‌
+
+<p>Click‌ ‌<Link‌ ‌href="/about"><a>here</a></Link>‌ ‌to‌ ‌go‌ ‌to‌ ‌about‌ ‌page</p>‌ ‌
+</div>‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Home‌ ‌
+
+
+<p>Click‌ ‌<Link‌ ‌href="/about"‌ ‌className="mylink"><a>here</a></Link>‌ ‌to‌ ‌go‌ ‌to‌ ‌about‌ ‌
+page</p>‌ ‌
+ ‌
+
+ ‌
+<p>Click‌ ‌<Link‌ ‌href="/about"><a‌ ‌className="mylink">here</a></Link>‌ ‌to‌ ‌go‌ ‌to‌ ‌about‌ ‌
+page</p>‌ ‌
+
+
+<Link‌ ‌href="/about"><img‌ ‌src="/static/profile.jpeg"‌ ‌/></Link>‌ ‌
+
+
+<Link‌ ‌href="/about"‌ ‌passHref>‌ ‌
+  ‌<img‌ ‌src="/static/profile.jpeg"‌ ‌/>‌ ‌
+</Link>‌ ‌
+ ‌<img‌ ‌src="/static/profile.jpeg"‌ ‌href="/about"/>‌ ‌
+//‌ ‌components/Header.js‌ ‌
+ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+ ‌
+const‌ ‌Header‌ ‌=‌ ‌()‌ ‌=>‌ ‌(‌ ‌
+  ‌<header>‌ ‌
+    ‌<Link‌ ‌href="/">‌ ‌
+      ‌<a>Home</a>‌ ‌
+    ‌</Link>‌ ‌
+    ‌<Link‌ ‌href="/about">‌ ‌
+      ‌<a>About</a>‌ ‌
+    ‌</Link>‌ ‌
+  ‌</header>‌ ‌
+)‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+
+
+//‌ ‌pages/index.js‌ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+import‌ ‌Header‌ ‌from‌ ‌'../components/Header'‌ ‌
+ ‌
+const‌ ‌Home‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<div‌ ‌id="home">‌ ‌
+
+<Header‌ ‌/>‌ ‌
+
+<h1>This‌ ‌is‌ ‌a‌ ‌nice‌ ‌homepage</h1>‌ ‌
+
+<p>Click‌ ‌<Link‌ ‌href="/about"‌ ‌passHref><img‌ ‌src="/static/profile.jpeg"‌ ‌
+/></Link>‌ ‌to‌ ‌go‌ ‌to‌ ‌about‌ ‌page</p>‌ ‌
+</div>‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Home‌ ‌
+//‌ ‌pages/about.js‌ ‌
+import‌ ‌Header‌ ‌from‌ ‌'../components/Header'‌ ‌
+ ‌
+const‌ ‌AboutMe‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌(‌ ‌
+
+<div‌ ‌id="about-me">‌ ‌
+
+
+<Header‌ ‌/>‌ ‌
+
+
+<h1>Hey‌ ‌Guys!</h1>‌ ‌
+
+
+<p>My‌ ‌name‌ ‌is‌ ‌Mehul‌ ‌and‌ ‌I'm‌ ‌the‌ ‌author‌ ‌of‌ ‌this‌ ‌book.</p>‌ ‌
+
+
+<p>This‌ ‌book‌ ‌covers‌ ‌React‌ ‌and‌ ‌stuff</p>‌ ‌
+
+
+<p>I‌ ‌like‌ ‌React</p>‌ ‌
+
+</div>‌ ‌
+)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌AboutMe‌ ‌
+//‌ ‌Header.js‌ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+ ‌
+const‌ ‌Header‌ ‌=‌ ‌()‌ ‌=>‌ ‌(‌ ‌
+  ‌<header>‌ ‌
+  ‌<style‌ ‌jsx>{‌ ‌
+
+  ‌`‌ ‌
+
+  ‌header‌ ‌{‌ ‌
+
+
+  ‌padding:‌ ‌20px;‌ ‌
+
+
+  ‌background:‌ ‌#1e1e1e;‌ ‌
+
+
+  ‌border-bottom:‌ ‌1px‌ ‌solid‌ ‌black;‌ ‌
+
+
+  ‌font-size:‌ ‌30px;‌ ‌
+
+  ‌}‌ ‌
+
+a‌ ‌{‌ ‌
+
+
+color:‌ ‌white;‌ ‌
+
+
+margin-right:‌ ‌30px;‌ ‌
+
+}‌ ‌
+
+  ‌`‌ ‌
+  ‌}</style>‌ ‌
+    ‌<Link‌ ‌href="/">‌ ‌
+      ‌<a>Home</a>‌ ‌
+    ‌</Link>‌ ‌
+    ‌<Link‌ ‌href="/about">‌ ‌
+      ‌<a>About</a>‌ ‌
+    ‌</Link>‌ ‌
+  ‌</header>‌ ‌
+)‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+ ‌
+const‌ ‌Header‌ ‌=‌ ‌()‌ ‌=>‌ ‌(‌ ‌
+  ‌<header>‌ ‌
+  ‌<style‌ ‌jsx‌ ‌‌
+global‌
+>{‌ ‌
+
+  ‌`‌ ‌
+
+  ‌header‌ ‌{‌ ‌
+
+
+  ‌padding:‌ ‌20px;‌ ‌
+
+
+  ‌background:‌ ‌#1e1e1e;‌ ‌
+
+
+  ‌border-bottom:‌ ‌1px‌ ‌solid‌ ‌black;‌ ‌
+
+
+  ‌font-size:‌ ‌30px;‌ ‌
+
+  ‌}‌ ‌
+
+a‌ ‌{‌ ‌
+
+
+color:‌ ‌white;‌ ‌
+
+
+margin-right:‌ ‌30px;‌ ‌
+
+}‌ ‌
+
+  ‌`‌ ‌
+  ‌}</style>‌ ‌
+    ‌<Link‌ ‌href="/">‌ ‌
+      ‌<a>Home</a>‌ ‌
+    ‌</Link>‌ ‌
+    ‌<Link‌ ‌href="/about">‌ ‌
+      ‌<a>About</a>‌ ‌
+    ‌</Link>‌ ‌
+  ‌</header>‌ ‌
+)‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+
+npm‌ ‌i‌ ‌@zeit/next-css‌ ‌--save‌ ‌
+
+//‌ ‌next.config.js‌ ‌
+const‌ ‌withCSS‌ ‌=‌ ‌require('@zeit/next-css')‌ ‌
+module.exports‌ ‌=‌ ‌withCSS({})‌ ‌
+
+‌‌
+//‌ ‌components/Header/index.js‌ ‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+import‌ ‌'./style.css'‌ ‌
+ ‌
+const‌ ‌Header‌ ‌=‌ ‌()‌ ‌=>‌ ‌(‌ ‌
+  ‌<header>‌ ‌
+    ‌<Link‌ ‌href="/">‌ ‌
+      ‌<a>Home</a>‌ ‌
+    ‌</Link>‌ ‌
+    ‌<Link‌ ‌href="/about">‌ ‌
+      ‌<a‌ ‌className="special">About</a>‌ ‌
+    ‌</Link>‌ ‌
+  ‌</header>‌ ‌
+)‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+//‌ ‌components/Header/style.css‌ ‌
+header‌ ‌{‌ ‌
+padding:‌ ‌20px;‌ ‌
+background:‌ ‌#1e1e1e;‌ ‌
+border-bottom:‌ ‌1px‌ ‌solid‌ ‌black;‌ ‌
+font-size:‌ ‌30px;‌ ‌
+}‌ ‌
+ ‌
+a‌ ‌{‌ ‌
+  ‌color:‌ ‌white;‌ ‌
+  ‌margin-right:‌ ‌30px;‌ ‌
+}‌ ‌
+ ‌
+a.special‌ ‌{‌ ‌
+color:‌ ‌yellow;‌ ‌
+}‌ ‌
+Header‌‌
+next.config.js‌‌
+ ‌‌
+//‌ ‌next.config.js‌ ‌
+const‌ ‌withCSS‌ ‌=‌ ‌require('@zeit/next-css')‌ ‌
+module.exports‌ ‌=‌ ‌withCSS({‌ ‌
+cssModules:‌ ‌true‌ ‌
+})‌ ‌
+
+ ‌‌
+import‌ ‌Link‌ ‌from‌ ‌'next/link'‌ ‌
+import‌ ‌css‌ ‌from‌ ‌'./style.css'‌ ‌
+ ‌
+const‌ ‌Header‌ ‌=‌ ‌()‌ ‌=>‌ ‌(‌ ‌
+  ‌<header>‌ ‌
+    ‌<Link‌ ‌href="/">‌ ‌
+      ‌<a>Home</a>‌ ‌
+    ‌</Link>‌ ‌
+    ‌<Link‌ ‌href="/about">‌ ‌
+      ‌<a‌ ‌className={css.special}>About</a>‌ ‌
+    ‌</Link>‌ ‌
+  ‌</header>‌ ‌
+)‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+

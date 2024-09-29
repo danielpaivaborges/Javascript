@@ -1,0 +1,97 @@
+function‌ ‌myName()‌ ‌{‌ ‌
+return‌ ‌this.myname‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌myNameButArrow‌ ‌=‌ ‌()‌ ‌=>‌ ‌console.log(this.myname)‌ ‌
+ ‌
+const‌ ‌person1‌ ‌=‌ ‌{‌ ‌myname:‌ ‌"Mehul",‌ ‌myName‌ ‌}‌ ‌
+const‌ ‌person2‌ ‌=‌ ‌{‌ ‌myname:‌ ‌"James",‌ ‌myName‌ ‌}‌ ‌
+const‌ ‌person3‌ ‌=‌ ‌{‌ ‌myname:‌ ‌"Enzo",‌ ‌myName:‌ ‌myNameButArrow‌ ‌}‌ ‌
+ ‌
+console.log(person1.myName())‌ ‌ ‌
+console.log(person2.myName())‌ ‌
+console.log(person3.myName())‌ ‌ ‌
+
+const‌ ‌obj‌ ‌=‌ ‌{‌ ‌
+myFunction:‌ ‌function()‌ ‌{‌ ‌
+
+return‌ ‌this‌ ‌
+},‌ ‌
+coolFunction:‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+
+return‌ ‌this‌ ‌
+}‌ ‌
+}‌ ‌
+ ‌
+console.log(obj.myFunction())‌ ‌//‌ ‌logs‌ ‌the‌ ‌original‌ ‌obj‌ ‌
+console.log(obj.coolFunction())‌ ‌//‌ ‌logs‌ ‌window‌ ‌(global‌ ‌object)‌ ‌
+
+
+const‌ ‌arr‌ ‌=‌ ‌[{‌ ‌
+name:‌ ‌"Mehul‌ ‌Mohan",‌ ‌
+country:‌ ‌"India"‌ ‌
+},‌ ‌{‌ ‌
+name:‌ ‌"James‌ ‌Paul",‌ ‌
+country:‌ ‌"USA"‌ ‌
+}]‌ ‌
+const‌ ‌component‌ ‌=‌ ‌arr.map(name‌ ‌=>‌ ‌arr.name)‌ ‌
+console.log(component)‌ ‌//‌ ‌logs‌ ‌["Mehul‌ ‌Mohan",‌ ‌"James‌ ‌Paul"]‌ ‌
+console.log(arr)‌ ‌//‌ ‌logs‌ ‌original‌ ‌object‌ ‌
+ ‌
+
+x‌ ‌=‌ ‌[1,2,3,4,5]‌ ‌
+x.reduce((acc,‌ ‌val)‌ ‌=>‌ ‌acc‌ ‌+‌ ‌val,‌ ‌0)‌ ‌
+
+class‌ ‌ILoveNumbers‌ ‌{‌ ‌
+    ‌constructor(num)‌ ‌{‌ ‌
+       ‌this.anothernum‌ ‌=‌ ‌num‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌getNum()‌ ‌{‌ ‌
+        ‌console.log(this.anothernum)‌ ‌
+    ‌}‌ ‌
+};‌ ‌
+ ‌
+class‌ ‌IHateNumbers‌ ‌extends‌ ‌ILoveNumbers‌ ‌{‌ ‌
+   ‌constructor(num)‌ ‌{‌ ‌
+        ‌super(num**num)‌ ‌
+        ‌this.num‌ ‌=‌ ‌num‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌getNum()‌ ‌{‌ ‌
+        ‌console.log(this.num)‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌getNumFromParent()‌ ‌{‌ ‌
+        ‌console.log(super.getNum())‌ ‌
+    ‌}‌ ‌
+};‌ ‌
+ ‌
+let‌ ‌obj‌ ‌=‌ ‌new‌ ‌IHateNumbers(5)‌ ‌
+obj.getNum()‌ ‌//‌ ‌5‌ ‌
+obj.getNumFromParent()‌ ‌//‌ ‌3125‌ ‌
+ ‌
+ ‌
+
+class‌ ‌C1‌ ‌{‌ ‌method()‌ ‌{‌ ‌return‌ ‌1‌ ‌}‌ ‌}‌ ‌
+class‌ ‌C2‌ ‌extends‌ ‌C1‌ ‌{‌ ‌method()‌ ‌{‌ ‌return‌ ‌super.method()‌ ‌}‌ ‌}‌ ‌
+class‌ ‌C3‌ ‌{‌ ‌method()‌ ‌{‌ ‌return‌ ‌3‌ ‌}‌ ‌}‌ ‌
+class‌ ‌C4‌ ‌extends‌ ‌C3‌ ‌{‌ ‌method()‌ ‌{‌ ‌return‌ ‌4‌ ‌}‌ ‌}‌ ‌
+ ‌
+const‌ ‌obj‌ ‌=‌ ‌new‌ ‌C4‌ ‌
+console.log(obj.method())‌ ‌//‌ ‌outputs‌ ‌4‌ ‌
+ ‌
+C4.prototype.method‌ ‌=‌ ‌C2.prototype.method‌ ‌
+ ‌
+console.log(obj.method())‌ ‌//‌ ‌outputs‌ ‌1‌ ‌
+ ‌
+
+function‌ ‌a()‌ ‌{‌ ‌
+let‌ ‌value‌ ‌=‌ ‌1‌ ‌
+return‌ ‌()‌ ‌=>‌ ‌value++‌ ‌
+}‌ ‌
+
+const‌ ‌func‌ ‌=‌ ‌a()‌ ‌
+func()‌ ‌//‌ ‌1‌ ‌
+func()‌ ‌//‌ ‌2‌ ‌
+func()‌ ‌//‌ ‌3‌ ‌

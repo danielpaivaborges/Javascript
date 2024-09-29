@@ -1,0 +1,533 @@
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+const‌ ‌App:‌ ‌React.FC<{‌ ‌name:‌ ‌string,‌ ‌age:‌ ‌number‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<div>‌ ‌
+
+<p>We've‌ ‌got‌ ‌all‌ ‌of‌ ‌your‌ ‌information!</p>‌ ‌
+
+<Profile‌ ‌name={props.name}‌ ‌age={props.age}‌ ‌/>‌ ‌
+</div>‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌Profile:‌ ‌React.FC<{‌ ‌name:‌ ‌string,‌ ‌age:‌ ‌number‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<div>‌ ‌
+
+<p>Here's‌ ‌a‌ ‌complete‌ ‌information‌ ‌about‌ ‌you</p>‌ ‌
+
+<p>We‌ ‌save‌ ‌everything‌ ‌in‌ ‌our‌ ‌databases</p>‌ ‌
+
+<NameFormatter‌ ‌name={props.name}‌ ‌/>‌ ‌
+
+<AgeFormatter‌ ‌age={props.age}‌ ‌/>‌ ‌
+</div>‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌NameFormatter:‌ ‌React.FC<{‌ ‌name:‌ ‌string‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<p>Like‌ ‌you‌ ‌can‌ ‌see,‌ ‌here's‌ ‌your‌ ‌name:‌ ‌<TextField‌ ‌value={props.name}‌ ‌
+type="text"‌ ‌/></p>‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌AgeFormatter:‌ ‌React.FC<{‌ ‌age:‌ ‌number‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<p>Your‌ ‌age‌ ‌is:‌ ‌<TextField‌ ‌value={props.age}‌ ‌type="number"‌ ‌/></p>‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌TextField:‌ ‌React.FC<{‌ ‌value:‌ ‌any,‌ ‌type:‌ ‌string‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+return‌ ‌<input‌ ‌type={props.type}‌ ‌value={props.value}‌ ‌/>‌ ‌
+}‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌name="Mehul"‌ ‌age={20}‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+//‌ ‌Parent.tsx‌ ‌
+ ‌
+import‌ ‌React,‌ ‌{‌ ‌useRef‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+ ‌
+import‌ ‌ChildInput,‌ ‌{‌ ‌ChildInputHandles‌ ‌}‌ ‌from‌ ‌'./Child'‌ ‌
+ ‌
+const‌ ‌Parent:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+  ‌const‌ ‌ref‌ ‌=‌ ‌useRef<ChildInputHandles>(null)‌ ‌
+ ‌
+  ‌function‌ ‌setChildFocus()‌ ‌{‌ ‌
+    ‌if‌ ‌(ref.current)‌ ‌{‌ ‌
+
+ref.current.setFocus()‌ ‌
+    ‌}‌ ‌
+  ‌}‌ ‌
+ ‌
+  ‌return‌ ‌<div>‌ ‌
+ ‌
+
+<ChildInput‌ ‌ref={ref}‌ ‌defaultValue="Hello‌ ‌World"‌ ‌/>‌ ‌
+
+
+<button‌ ‌onClick={setChildFocus}>Set‌ ‌focus‌ ‌to‌ ‌input</button>‌ ‌
+  ‌</div>‌ ‌
+}‌ ‌
+ ‌
+ ‌
+ReactDOM.render(<Parent‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+//‌ ‌Child.tsx‌ ‌
+ ‌
+import‌ ‌React,‌ ‌{‌ ‌RefForwardingComponent,‌ ‌forwardRef,‌ ‌useImperativeHandle,‌ ‌useRef‌ ‌}‌ ‌from‌ ‌
+'react'‌ ‌
+ ‌
+export‌ ‌interface‌ ‌ChildInputHandles‌ ‌{‌ ‌
+    ‌setFocus():‌ ‌void‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌interface‌ ‌ChildInputProps‌ ‌{‌ ‌
+    ‌defaultValue:‌ ‌string‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌ChildInput:‌ ‌RefForwardingComponent<ChildInputHandles,‌ ‌ChildInputProps>‌ ‌=‌ ‌(props,‌ ‌
+ref)‌ ‌=>‌ ‌{‌ ‌
+    ‌const‌ ‌inputRef‌ ‌=‌ ‌useRef<HTMLInputElement>(null)‌ ‌
+ ‌
+    ‌useImperativeHandle(ref,‌ ‌()‌ ‌=>‌ ‌({‌ ‌
+        ‌setFocus()‌ ‌{‌ ‌
+            ‌if‌ ‌(inputRef.current)‌ ‌{‌ ‌
+                ‌inputRef.current.focus()‌ ‌
+            ‌}‌ ‌
+        ‌}‌ ‌
+    ‌}))‌ ‌
+ ‌
+    ‌return‌ ‌<input‌ ‌{...props}‌ ‌defaultValue={props.defaultValue}‌ ‌ref={inputRef}‌ ‌/>‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌forwardRef(ChildInput)‌ ‌
+
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+import‌ ‌Component1‌ ‌from‌ ‌'./Component1'‌ ‌
+ ‌
+ReactDOM.render(<Component1‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+ ‌Component1.tsx‌‌
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌Header‌ ‌from‌ ‌'./Header'‌ ‌
+import‌ ‌Content‌ ‌from‌ ‌'./Content'‌ ‌
+import‌ ‌Footer‌ ‌from‌ ‌'./Footer'‌ ‌
+import‌ ‌'./global.css'‌ ‌
+ ‌
+const‌ ‌Component1:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<div>‌ ‌
+            ‌<Header‌ ‌/>‌ ‌
+            ‌<Content‌ ‌/>‌ ‌
+            ‌<Footer‌ ‌/>‌ ‌
+        ‌</div>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Component1‌ ‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+const‌ ‌Header:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<header>‌ ‌
+            ‌<h1>Welcome‌ ‌to‌ ‌my‌ ‌site!</h1>‌ ‌
+            ‌<p>Hello‌ ‌mehul</p>‌ ‌
+        ‌</header>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌Sidebar‌ ‌from‌ ‌'./Sidebar'‌ ‌
+import‌ ‌RightArticle‌ ‌from‌ ‌'./RightArticle'‌ ‌
+ ‌
+const‌ ‌Content:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<section>‌ ‌
+            ‌<Sidebar‌ ‌/>‌ ‌
+            ‌<RightArticle‌ ‌/>‌ ‌
+        ‌</section>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Content‌ ‌
+ ‌
+This‌ ‌is‌ ‌our‌ ‌Sidebar.tsx‌ ‌file:‌ ‌
+ ‌
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+const‌ ‌Sidebar:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<aside>‌ ‌
+            ‌<h2>Wow‌ ‌this‌ ‌is‌ ‌a‌ ‌nice‌ ‌sidebar</h2>‌ ‌
+            ‌<p>See‌ ‌my‌ ‌logo</p>‌ ‌
+            ‌<img‌ ‌src="https://codedamn.com/assets/images/red-logo.png"‌ ‌/>‌ ‌
+        ‌</aside>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Sidebar‌ ‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+const‌ ‌RightArticle:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<article>‌ ‌
+            ‌<h2>This‌ ‌is‌ ‌my‌ ‌site!</h2>‌ ‌
+            ‌<p>It‌ ‌is‌ ‌very‌ ‌nice</p>‌ ‌
+            ‌<p>The‌ ‌mode‌ ‌right‌ ‌now‌ ‌is:‌ ‌light</p>‌ ‌
+            ‌<button>Click‌ ‌here‌ ‌to‌ ‌turn‌ ‌on‌ ‌dark‌ ‌mode</button>‌ ‌
+        ‌</article>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌RightArticle‌ ‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+const‌ ‌Footer:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<footer>‌ ‌
+            ‌<p>Copyright‌ ‌&copy;‌ ‌Me.</p>‌ ‌
+            ‌<img‌ ‌src="https://codedamn.com/assets/images/red-logo.png"‌ ‌/>‌ ‌
+        ‌</footer>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Footer‌ ‌
+*‌ ‌{‌ ‌
+    ‌margin:‌ ‌0;‌ ‌
+    ‌padding:‌ ‌0;‌ ‌
+    ‌font-family:‌ ‌Arial;‌ ‌
+}‌ ‌
+ ‌
+header‌ ‌{‌ ‌
+    ‌text-align:‌ ‌center;‌ ‌
+    ‌padding:‌ ‌10px;‌ ‌
+    ‌border-bottom:‌ ‌1px‌ ‌solid‌ ‌#eee;‌ ‌
+}‌ ‌
+ ‌
+section‌ ‌{‌ ‌
+    ‌min-height:‌ ‌80vh;‌ ‌
+    ‌display:‌ ‌flex;‌ ‌
+    ‌width:‌ ‌960px;‌ ‌
+    ‌margin:‌ ‌10px‌ ‌auto;‌ ‌
+    ‌justify-content:‌ ‌space-between;‌ ‌
+}‌ ‌
+ ‌
+article‌ ‌{‌ ‌
+    ‌flex-grow:‌ ‌1;‌ ‌
+    ‌margin-left:‌ ‌10px;‌ ‌
+    ‌background:‌ ‌rgb(226,‌ ‌226,‌ ‌226);‌ ‌
+}‌ ‌
+ ‌
+aside‌ ‌{‌ ‌
+    ‌max-width:‌ ‌250px;‌ ‌
+    ‌background:‌ ‌rgb(226,‌ ‌226,‌ ‌226);‌ ‌
+}‌ ‌
+ ‌
+img‌ ‌{‌ ‌
+    ‌height:‌ ‌80px;‌ ‌
+}‌ ‌
+ ‌
+footer‌ ‌{‌ ‌
+    ‌display:‌ ‌flex;‌ ‌
+    ‌flex-direction:‌ ‌row-reverse;‌ ‌
+    ‌justify-content:‌ ‌center;‌ ‌
+    ‌align-items:‌ ‌center;‌ ‌
+}‌ ‌
+ ‌
+footer‌ ‌img‌ ‌{‌ ‌
+    ‌height:‌ ‌50px;‌ ‌
+    ‌margin-right:‌ ‌20px;‌ ‌
+}‌ ‌
+create-react-app.‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌createContext,‌ ‌useState‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌Header‌ ‌from‌ ‌'./Header'‌ ‌
+import‌ ‌Content‌ ‌from‌ ‌'./Content'‌ ‌
+import‌ ‌Footer‌ ‌from‌ ‌'./Footer'‌ ‌
+import‌ ‌'./global.css'‌ ‌
+ ‌
+type‌ ‌Context‌ ‌=‌ ‌{‌ ‌
+    ‌theme:‌ ‌string‌ ‌
+    ‌name:‌ ‌string‌ ‌
+    ‌logo:‌ ‌string‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌StateContext‌ ‌=‌ ‌createContext<Partial<Context>>({})‌ ‌
+ ‌
+export‌ ‌{‌ ‌StateContext‌ ‌}‌ ‌
+ ‌
+const‌ ‌Component1:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌[theme,‌ ‌setTheme]‌ ‌=‌ ‌useState<string>('light')‌ ‌
+ ‌
+    ‌const‌ ‌defaults‌ ‌=‌ ‌{‌ ‌
+        ‌get‌ ‌theme()‌ ‌{‌ ‌
+            ‌return‌ ‌theme‌ ‌
+        ‌},‌ ‌
+        ‌set‌ ‌theme(value)‌ ‌{‌ ‌
+            ‌document.body.classList.remove('dark',‌ ‌'light')‌ ‌
+            ‌document.body.classList.add(value)‌ ‌
+            ‌setTheme(value)‌ ‌
+        ‌},‌ ‌
+        ‌name:‌ ‌'Mehul',‌ ‌
+        ‌get‌ ‌logo()‌ ‌{‌ ‌
+            ‌return‌ ‌this.theme‌ ‌===‌ ‌'dark'‌ ‌?‌ ‌'white-logo'‌ ‌:‌ ‌'red-logo'‌ ‌
+        ‌}‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<StateContext.Provider‌ ‌value={defaults}>‌ ‌
+            ‌<Header‌ ‌/>‌ ‌
+            ‌<Content‌ ‌/>‌ ‌
+            ‌<Footer‌ ‌/>‌ ‌
+        ‌</StateContext.Provider>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Component1‌ ‌
+ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌StateContext‌ ‌}‌ ‌from‌ ‌'./Component1'‌ ‌
+ ‌
+const‌ ‌Header:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌‌
+const‌ ‌state‌ ‌=‌ ‌useContext(StateContext)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<header>‌ ‌
+            ‌<h1>Welcome‌ ‌to‌ ‌my‌ ‌site!</h1>‌ ‌
+            ‌<p>Hello‌ ‌‌
+{state.name}‌
+</p>‌ ‌
+        ‌</header>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+/*‌ ‌existing‌ ‌css‌ ‌here‌ ‌*/‌ ‌
+ ‌
+/*‌ ‌dark‌ ‌mode‌ ‌*/‌ ‌
+ ‌
+.dark‌ ‌{‌ ‌
+    ‌background:‌ ‌black;‌ ‌
+    ‌color:‌ ‌rgb(194,‌ ‌194,‌ ‌194);‌ ‌
+}‌ ‌
+ ‌
+.dark‌ ‌header‌ ‌{‌ ‌
+    ‌border-bottom:‌ ‌1px‌ ‌solid‌ ‌rgb(56,‌ ‌56,‌ ‌56);‌ ‌
+}‌ ‌
+ ‌
+.dark‌ ‌aside,‌ ‌.dark‌ ‌article‌ ‌{‌ ‌
+    ‌background:‌ ‌rgb(53,‌ ‌53,‌ ‌53);‌ ‌
+}‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌StateContext‌ ‌}‌ ‌from‌ ‌'./Component1'‌ ‌
+ ‌
+const‌ ‌RightArticle:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌‌
+const‌ ‌state‌ ‌=‌ ‌useContext(StateContext)‌ ‌
+ ‌
+    ‌function‌ ‌toggleTheme()‌ ‌{‌ ‌
+        ‌if(state.theme‌ ‌===‌ ‌'dark')‌ ‌{‌ ‌
+            ‌state.theme‌ ‌=‌ ‌'light'‌ ‌
+        ‌}‌ ‌else‌ ‌{‌ ‌
+            ‌state.theme‌ ‌=‌ ‌'dark'‌ ‌
+        ‌}‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<article>‌ ‌
+            ‌<h2>This‌ ‌is‌ ‌my‌ ‌site!</h2>‌ ‌
+            ‌<p>It‌ ‌is‌ ‌very‌ ‌nice</p>‌ ‌
+            ‌<p>The‌ ‌mode‌ ‌right‌ ‌now‌ ‌is:‌ ‌{state.theme}</p>‌ ‌
+            ‌<button‌ ‌onClick={toggleTheme}>Click‌ ‌here‌ ‌to‌ ‌turn‌ ‌on‌ ‌dark‌ ‌mode</button>‌ ‌
+        ‌</article>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌RightArticle‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌StateContext‌ ‌}‌ ‌from‌ ‌'./Component1'‌ ‌
+ ‌
+const‌ ‌Sidebar:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌{‌ ‌logo‌ ‌}‌ ‌=‌ ‌useContext(StateContext)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<aside>‌ ‌
+            ‌<h2>Wow‌ ‌this‌ ‌is‌ ‌a‌ ‌nice‌ ‌sidebar</h2>‌ ‌
+            ‌<p>See‌ ‌my‌ ‌logo</p>‌ ‌
+            ‌<img‌ ‌src={`https://codedamn.com/assets/images/${logo}.png`}‌ ‌/>‌ ‌
+        ‌</aside>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Sidebar‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌StateContext‌ ‌}‌ ‌from‌ ‌'./Component1'‌ ‌
+ ‌
+const‌ ‌Footer:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌{‌ ‌logo‌ ‌}‌ ‌=‌ ‌useContext(StateContext)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<footer>‌ ‌
+            ‌<p>Copyright‌ ‌&copy;‌ ‌Me.</p>‌ ‌
+            ‌<img‌ ‌src={`https://codedamn.com/assets/images/${logo}.png`}‌ ‌/>‌ ‌
+        ‌</footer>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Footer‌ ‌
+createContext‌‌
+import‌ ‌{‌ ‌createContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+type‌ ‌Context‌ ‌=‌ ‌{‌ ‌
+    ‌theme:‌ ‌string‌ ‌
+    ‌name:‌ ‌string‌ ‌
+    ‌logo:‌ ‌string‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌initialState‌ ‌=‌ ‌{‌ ‌
+    ‌theme:‌ ‌'light',‌ ‌
+    ‌name:‌ ‌'Mehul',‌ ‌
+    ‌logo:‌ ‌'red-logo'‌ ‌
+}‌ ‌
+ ‌
+function‌ ‌stateFunc(state:‌ ‌Context,‌ ‌action:‌ ‌{‌ ‌type:‌ ‌string,‌ ‌payload:‌ ‌any‌ ‌})‌ ‌{‌ ‌
+    ‌const‌ ‌{‌ ‌type,‌ ‌payload‌ ‌}‌ ‌=‌ ‌action‌ ‌
+    ‌switch(type)‌ ‌{‌ ‌
+        ‌case‌ ‌'SET_THEME':‌ ‌
+            ‌document.body.classList.remove('dark',‌ ‌'light')‌ ‌
+            ‌document.body.classList.add(payload)‌ ‌
+            ‌return‌ ‌{‌ ‌
+                ‌...state,‌ ‌
+                ‌theme:‌ ‌payload,‌ ‌
+                ‌logo:‌ ‌payload‌ ‌===‌ ‌'dark'‌ ‌?‌ ‌'white-logo'‌ ‌:‌ ‌'red-logo'‌ ‌
+            ‌}‌ ‌
+    ‌}‌ ‌
+    ‌return‌ ‌initialState‌ ‌
+}‌ ‌
+ ‌
+ ‌
+const‌ ‌StateContext‌ ‌=‌ ‌createContext<{‌ ‌state:‌ ‌Context,‌ ‌dispatch:‌ ‌Function}>({‌ ‌
+    ‌state:‌ ‌initialState,‌ ‌
+    ‌dispatch:‌ ‌()‌ ‌=>‌ ‌0‌ ‌
+})‌ ‌
+ ‌
+export‌ ‌const‌ ‌Provider‌ ‌=‌ ‌StateContext.Provider‌ ‌
+export‌ ‌const‌ ‌reducer‌ ‌=‌ ‌stateFunc‌ ‌
+export‌ ‌const‌ ‌context‌ ‌=‌ ‌StateContext‌ ‌
+export‌ ‌const‌ ‌defaultState‌ ‌=‌ ‌initialState‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useReducer‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌Header‌ ‌from‌ ‌'./Header'‌ ‌
+import‌ ‌Content‌ ‌from‌ ‌'./Content'‌ ‌
+import‌ ‌Footer‌ ‌from‌ ‌'./Footer'‌ ‌
+import‌ ‌'./global.css'‌ ‌
+ ‌
+import‌ ‌{‌ ‌Provider,‌ ‌defaultState,‌ ‌reducer‌ ‌}‌ ‌from‌ ‌'./state'‌ ‌
+ ‌
+const‌ ‌Component1:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌[state,‌ ‌dispatch]‌ ‌=‌ ‌useReducer(reducer,‌ ‌defaultState)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<Provider‌ ‌value={{‌ ‌state,‌ ‌dispatch‌ ‌}}>‌ ‌
+            ‌<Header‌ ‌/>‌ ‌
+            ‌<Content‌ ‌/>‌ ‌
+            ‌<Footer‌ ‌/>‌ ‌
+        ‌</Provider>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Component1‌ ‌
+const‌ ‌[state,‌ ‌setState]‌ ‌=‌ ‌useState(0)‌ ‌
+setState(1)‌ ‌//‌ ‌←‌ ‌sets‌ ‌the‌ ‌state‌ ‌variable‌ ‌to‌ ‌1‌ ‌
+ ‌
+const‌ ‌[state,‌ ‌dispatch]‌ ‌=‌ ‌useReducer(reducer,‌ ‌1)‌ ‌
+dispatch({‌ ‌type:‌ ‌‘do‌ ‌something’,‌ ‌value:‌ ‌100‌ ‌})‌ ‌//‌ ‌Now‌ ‌reducer‌ ‌is‌ ‌called‌ ‌
+//‌ ‌behind‌ ‌the‌ ‌scenes:‌ ‌reducer(state,‌ ‌{‌ ‌type:‌ ‌‘do‌ ‌something’,‌ ‌value:‌ ‌100‌ ‌})‌ ‌->‌ ‌returns‌ ‌101‌ ‌
+//‌ ‌state‌ ‌becomes‌ ‌101‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌context‌ ‌}‌ ‌from‌ ‌'./state'‌ ‌
+ ‌
+const‌ ‌Footer:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌‌
+const‌ ‌{‌ ‌state:‌ ‌{‌ ‌logo‌ ‌}‌ ‌}‌ ‌=‌ ‌useContext(context)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<footer>‌ ‌
+            ‌<p>Copyright‌ ‌&copy;‌ ‌Me.</p>‌ ‌
+            ‌<img‌ ‌src={`https://codedamn.com/assets/images/${logo}.png`}‌ ‌/>‌ ‌
+        ‌</footer>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Footer‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌context‌ ‌}‌ ‌from‌ ‌'./state'‌ ‌
+ ‌
+const‌ ‌Header:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌{‌ ‌state:‌ ‌{‌ ‌name‌ ‌}‌ ‌}‌ ‌=‌ ‌useContext(context)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<header>‌ ‌
+            ‌<h1>Welcome‌ ‌to‌ ‌my‌ ‌site!</h1>‌ ‌
+            ‌<p>Hello‌ ‌{name}</p>‌ ‌
+        ‌</header>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Header‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌context‌ ‌}‌ ‌from‌ ‌'./state'‌ ‌
+ ‌
+const‌ ‌RightArticle:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+    ‌const‌ ‌{‌ ‌state:‌ ‌{‌ ‌theme‌ ‌},‌ ‌dispatch‌ ‌}‌ ‌=‌ ‌useContext(context)‌ ‌
+ ‌
+    ‌function‌ ‌toggleTheme()‌ ‌{‌ ‌
+        ‌if(theme‌ ‌===‌ ‌'dark')‌ ‌{‌ ‌
+            ‌dispatch({‌ ‌type:‌ ‌'SET_THEME',‌ ‌payload:‌ ‌'light'‌ ‌})‌ ‌
+        ‌}‌ ‌else‌ ‌{‌ ‌
+            ‌dispatch({‌ ‌type:‌ ‌'SET_THEME',‌ ‌payload:‌ ‌'dark'‌ ‌})‌ ‌
+        ‌}‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<article>‌ ‌
+            ‌<h2>This‌ ‌is‌ ‌my‌ ‌site!</h2>‌ ‌
+            ‌<p>It‌ ‌is‌ ‌very‌ ‌nice</p>‌ ‌
+            ‌<p>The‌ ‌mode‌ ‌right‌ ‌now‌ ‌is:‌ ‌{theme}</p>‌ ‌
+            ‌<button‌ ‌onClick={toggleTheme}>Click‌ ‌here‌ ‌to‌ ‌turn‌ ‌on‌ ‌dark‌ ‌mode</button>‌ ‌
+        ‌</article>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌RightArticle‌ ‌
+import‌ ‌React,‌ ‌{‌ ‌useContext‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌{‌ ‌context‌ ‌}‌ ‌from‌ ‌'./state'‌ ‌
+ ‌
+const‌ ‌Sidebar:‌ ‌React.FC‌ ‌=‌ ‌()‌ ‌=>‌ ‌{‌ ‌ ‌
+ ‌
+    ‌const‌ ‌{‌ ‌state:‌ ‌{‌ ‌logo‌ ‌}‌ ‌}‌ ‌=‌ ‌useContext(context)‌ ‌
+ ‌
+    ‌return‌ ‌(‌ ‌
+        ‌<aside>‌ ‌
+            ‌<h2>Wow‌ ‌this‌ ‌is‌ ‌a‌ ‌nice‌ ‌sidebar</h2>‌ ‌
+            ‌<p>See‌ ‌my‌ ‌logo</p>‌ ‌
+            ‌<img‌ ‌src={`https://codedamn.com/assets/images/${logo}.png`}‌ ‌/>‌ ‌
+        ‌</aside>‌ ‌
+    ‌)‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌Sidebar‌ ‌
+switch(type)‌ ‌{‌ ‌
+//‌ ‌..‌ ‌
+  ‌case‌ ‌‘CHANGE_USERNAME’:‌ ‌
+    ‌return‌ ‌{‌ ‌
+      ‌...state,‌ ‌
+      ‌name:‌ ‌payload‌ ‌
+    ‌}‌ ‌
+//‌ ‌….‌ ‌
+}‌ ‌

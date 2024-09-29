@@ -1,0 +1,266 @@
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+ ‌
+function‌ ‌App()‌ ‌{‌ ‌
+    ‌return‌ ‌<p>Hello‌ ‌World</p>‌ ‌
+}‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+import‌ ‌React‌ ‌from‌ ‌'react';‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom';‌ ‌
+ ‌
+function‌ ‌App()‌ ‌{‌ ‌
+  ‌return‌ ‌React.createElement("p",‌ ‌null,‌ ‌"Hello‌ ‌World");‌ ‌
+}‌ ‌
+ ‌
+ReactDOM.render(React.createElement(App,‌ ‌null),‌ ‌document.getElementById('root'));‌ ‌
+interface‌ ‌props‌ ‌{‌ ‌ ‌
+    ‌name:‌ ‌string‌ ‌
+}‌ ‌
+ ‌
+const‌ ‌App:‌ ‌React.FC<props>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+    ‌return‌ ‌<p>Hello‌ ‌{props.name}</p>‌ ‌
+}‌ ‌
+ ‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌name="Mehul"‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+
+
+const‌ ‌App:‌ ‌React.FC<{‌ ‌name:‌ ‌string‌ ‌}>‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+    ‌return‌ ‌<div>‌ ‌
+        ‌Hello‌ ‌{props.name}‌ ‌
+        ‌<div‌ ‌className="children">‌ ‌
+            ‌{props.children}‌ ‌
+        ‌</div>‌ ‌
+    ‌</div>‌ ‌
+}‌ ‌
+<App‌ ‌name="Mehul">‌ ‌
+    ‌<p>Hey‌ ‌there!</p>‌ ‌
+</App>‌ ‌
+const‌ ‌App:‌ ‌React.FC<{‌ ‌name:‌ ‌string,‌ ‌children(one:‌ ‌string,‌ ‌two:‌ ‌string):‌ ‌JSX.Element‌ ‌}>‌ ‌=‌ ‌props‌ ‌
+=>‌ ‌{‌ ‌
+    ‌return‌ ‌<div>‌ ‌
+        ‌Hello‌ ‌{props.name}‌ ‌
+        ‌<div‌ ‌className="children">‌ ‌
+            ‌{props.children('one',‌ ‌'two')}‌ ‌
+        ‌</div>‌ ‌
+    ‌</div>‌ ‌
+}‌ ‌
+<App‌ ‌name="Mehul">‌ ‌
+    ‌{(one:‌ ‌string,‌ ‌two:‌ ‌string)‌ ‌=>‌ ‌<p>Hey‌ ‌there!‌ ‌Passed‌ ‌attributes:‌ ‌{‌ ‌one‌ ‌}‌ ‌{‌ ‌two‌ ‌}</p>}‌ ‌
+</App>‌ ‌
+<p>‌‌
+
+function‌ ‌App()‌ ‌{‌ ‌
+    ‌const‌ ‌[name,‌ ‌setName]‌ ‌=‌ ‌useState('Mehul')‌ ‌
+ ‌
+    ‌return‌ ‌<p>Hello‌ ‌{name}</p>‌ ‌
+}‌ ‌
+const‌ ‌[name,‌ ‌setName]‌ ‌=‌ ‌useState('Mehul')‌
+
+function‌ ‌App()‌ ‌{‌ ‌
+    ‌const‌ ‌[name,‌ ‌setName]‌ ‌=‌ ‌useState('Mehul')‌ ‌
+ ‌
+    ‌setTimeout(()‌ ‌=>‌ ‌{‌ ‌
+        ‌setName(Math.random())‌ ‌
+    ‌},‌ ‌1000)‌ ‌
+ ‌
+    ‌return‌ ‌<p>Hello‌ ‌{name}</p>‌ ‌
+}‌ ‌
+const‌ ‌App:‌ ‌React.FC‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+ ‌
+    ‌const‌ ‌[currentNumber,‌ ‌setCurrentNumber]‌ ‌=‌ ‌useState(Math.random())‌ ‌
+ ‌
+    ‌function‌ ‌changeState()‌ ‌{‌ ‌
+        ‌setCurrentNumber(Math.random())‌ ‌
+        ‌console.log(`New‌ ‌number‌ ‌=>‌ ‌${currentNumber}`)‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌return‌ ‌<button‌ ‌onClick={changeState}>Click‌ ‌Me‌ ‌{‌ ‌currentNumber‌ ‌}</button>‌ ‌
+}‌ ‌
+const‌ ‌App:‌ ‌React.FC‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+ ‌
+    ‌const‌ ‌[counter,‌ ‌setCounter]‌ ‌=‌ ‌useState(0)‌ ‌
+ ‌
+    ‌function‌ ‌add()‌ ‌{‌ ‌
+        ‌setCounter(counter‌ ‌=>‌ ‌counter‌ ‌+‌ ‌1)‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌function‌ ‌sub()‌ ‌{‌ ‌
+        ‌setCounter(counter‌ ‌=>‌ ‌counter‌ ‌-‌ ‌1)‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌return‌ ‌<>‌ ‌
+        ‌<p>{‌ ‌counter‌ ‌}</p>‌ ‌
+        ‌<button‌ ‌onClick={add}>++</button>‌ ‌
+        ‌<button‌ ‌onClick={sub}>--</button>‌ ‌
+    ‌</>‌ ‌
+}‌ ‌
+const‌ ‌App:‌ ‌React.FC‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+ ‌
+    ‌const‌ ‌[counter,‌ ‌setCounter]‌ ‌=‌ ‌useState(0)‌ ‌
+ ‌
+    ‌useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌document.title‌ ‌=‌ ‌'Counter‌ ‌is‌ ‌at‌ ‌'‌ ‌+‌ ‌counter‌ ‌
+    ‌})‌ ‌
+ ‌
+    ‌return‌ ‌<>‌ ‌
+        ‌<p>{‌ ‌counter‌ ‌}</p>‌ ‌
+        ‌<button‌ ‌onClick={()‌ ‌=>‌ ‌setCounter(c‌ ‌=>‌ ‌c‌ ‌+‌ ‌1)}>Increment</button>‌ ‌
+    ‌</>‌ ‌
+}‌ ‌
+const‌ ‌[counter1,‌ ‌setCounter1]‌ ‌=‌ ‌useState(0)‌ ‌
+    ‌const‌ ‌[counter2,‌ ‌setCounter2]‌ ‌=‌ ‌useState(0)‌ ‌
+ ‌
+    ‌useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌document.title‌ ‌=‌ ‌'Counter‌ ‌is‌ ‌at‌ ‌'‌ ‌+‌ ‌counter1‌ ‌
+ ‌
+        ‌console.log('Effect‌ ‌called')‌ ‌
+    ‌})‌ ‌
+ ‌
+    ‌return‌ ‌<>‌ ‌
+        ‌<span>{‌ ‌counter1‌ ‌}</span>&nbsp;‌ ‌
+        ‌<span>{‌ ‌counter2‌ ‌}</span>‌ ‌
+        ‌<button‌ ‌onClick={()‌ ‌=>‌ ‌setCounter1(c‌ ‌=>‌ ‌c‌ ‌+‌ ‌1)}>Increment‌ ‌Counter‌ ‌1</button>‌ ‌
+        ‌<button‌ ‌onClick={()‌ ‌=>‌ ‌setCounter2(c‌ ‌=>‌ ‌c‌ ‌+‌ ‌1)}>Increment‌ ‌Counter‌ ‌2</button>‌ ‌
+    ‌</>‌ ‌
+
+‌
+useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌document.title‌ ‌=‌ ‌'Counter‌ ‌is‌ ‌at‌ ‌'‌ ‌+‌ ‌counter1‌ ‌
+ ‌
+        ‌console.log('Effect‌ ‌called')‌ ‌
+   ‌},‌ ‌[counter1])‌ ‌
+
+
+const‌ ‌App:‌ ‌React.FC‌ ‌=‌ ‌props‌ ‌=>‌ ‌{‌ ‌
+ ‌
+    ‌const‌ ‌[counter,‌ ‌setCounter]‌ ‌=‌ ‌useState(0)‌ ‌
+ ‌
+    ‌useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌document.title‌ ‌=‌ ‌'Counter‌ ‌is‌ ‌at‌ ‌'‌ ‌+‌ ‌counter‌ ‌
+ ‌
+        ‌return‌ ‌function‌ ‌cleanup()‌ ‌{‌ ‌
+            ‌console.log(`This‌ ‌will‌ ‌fire‌ ‌whenever‌ ‌this‌ ‌function‌ ‌gets‌ ‌called‌ ‌next/the‌ ‌component‌ ‌
+unmounts.‌ ‌Counter‌ ‌is‌ ‌${counter}‌ ‌right‌ ‌now`)‌ ‌
+        ‌}‌ ‌
+    ‌},‌ ‌[counter])‌ ‌
+ ‌
+    ‌return‌ ‌<>‌ ‌
+        ‌<span>{‌ ‌counter‌ ‌}</span>‌ ‌
+        ‌<button‌ ‌onClick={()‌ ‌=>‌ ‌setCounter(c‌ ‌=>‌ ‌c‌ ‌+‌ ‌1)}>Increment‌ ‌Counter</button>‌ ‌
+    ‌</>‌ ‌
+}‌ ‌
+const‌ ‌[result,‌ ‌setResult]‌ ‌=‌ ‌useState(null)‌ ‌
+    ‌const‌ ‌[url,‌ ‌setUrl]‌ ‌=‌ ‌useState(null)‌ ‌
+ ‌
+    ‌async‌ ‌function‌ ‌someAsyncOperation()‌ ‌{‌ ‌
+        ‌//‌ ‌some‌ ‌more‌ ‌code‌ ‌
+        ‌return‌ ‌await‌ ‌fetch(url)‌ ‌
+    ‌}‌ ‌
+ ‌ ‌
+    ‌useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌//‌ ‌some‌ ‌long‌ ‌code....‌ ‌
+        ‌someAsyncOperation().then(r‌ ‌=>‌ ‌{‌ ‌
+            ‌setResult(r)‌ ‌
+        ‌})‌ ‌
+    ‌},‌ ‌[])‌ ‌
+
+const‌ ‌someAsyncOperation‌ ‌=‌ ‌useCallback(async‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+        ‌//‌ ‌some‌ ‌more‌ ‌code‌ ‌
+        ‌return‌ ‌await‌ ‌fetch(url)‌ ‌
+    ‌},‌ ‌[url])‌ ‌
+ ‌ ‌
+    ‌useEffect(()‌ ‌=>‌ ‌{‌ ‌
+        ‌//‌ ‌some‌ ‌long‌ ‌code....‌ ‌
+        ‌someAsyncOperation().then(r‌ ‌=>‌ ‌{‌ ‌
+            ‌setResult(r)‌ ‌
+        ‌})‌ ‌
+    ‌},‌ ‌[someAsyncOperation])‌ ‌
+
+
+import‌ ‌{‌ ‌useState,‌ ‌useEffect‌ ‌}‌ ‌from‌ ‌'react'‌ ‌
+ ‌
+const‌ ‌useStateCB‌ ‌=‌ ‌(initState:‌ ‌any,‌ ‌cb:‌ ‌Function)‌ ‌=>‌ ‌{‌ ‌
+  ‌const‌ ‌[state,‌ ‌setState]‌ ‌=‌ ‌useState(initState)‌ ‌
+ ‌
+  ‌useEffect(()‌ ‌=>‌ ‌cb(state),‌ ‌[state])‌ ‌
+ ‌
+  ‌return‌ ‌[state,‌ ‌setState]‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌useStateCB‌ ‌
+useStateCB(“test”,‌ ‌updatedState‌ ‌=>‌ ‌console.log(updateState))‌
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+ ‌
+class‌ ‌App‌ ‌extends‌ ‌React.Component<{},‌ ‌{}>‌ ‌{‌ ‌
+    ‌render()‌ ‌{‌ ‌
+        ‌return‌ ‌<p>Hello‌ ‌World</p>‌ ‌
+    ‌}‌ ‌
+}‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+<{},‌ ‌{}>‌
+class‌ ‌App‌ ‌extends‌ ‌React.Component<{‌ ‌prop1:‌ ‌string‌ ‌},‌ ‌{}>‌ ‌{‌ ‌
+    ‌render()‌ ‌{‌ ‌
+        ‌return‌ ‌<p>Hello‌ ‌World.‌ ‌Prop1‌ ‌says‌ ‌{this.props.prop1}</p>‌ ‌
+    ‌}‌ ‌
+}‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌prop1="something"‌ ‌/>,‌ ‌document.getElementById('root'))‌ ‌
+
+‌‌
+class‌ ‌App‌ ‌extends‌ ‌React.Component<{},‌ ‌{‌ ‌name:‌ ‌string‌ ‌}>‌ ‌{‌ ‌
+ ‌
+    ‌state‌ ‌=‌ ‌{‌ ‌
+        ‌name:‌ ‌'Mehul'‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌render()‌ ‌{‌ ‌
+        ‌return‌ ‌<p>{this.state.name}</p>‌ ‌
+    ‌}‌ ‌
+}‌ ‌
+
+class‌ ‌App‌ ‌extends‌ ‌React.Component<{},‌ ‌{‌ ‌num:‌ ‌number‌ ‌}>‌ ‌{‌ ‌
+    ‌state‌ ‌=‌ ‌{‌ ‌
+        ‌num:‌ ‌Math.random()‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌changeNum()‌ ‌{‌ ‌
+        ‌this.setState({‌ ‌
+            ‌num:‌ ‌Math.random()‌ ‌
+        ‌})‌ ‌
+    ‌}‌ ‌
+ ‌
+    ‌render()‌ ‌{‌ ‌
+        ‌return‌ ‌<p‌ ‌onClick={()‌ ‌=>‌ ‌this.changeNum()}>{this.state.num}</p>‌ ‌
+    ‌}‌ ‌
+}‌ ‌
+
+
+static‌ ‌getDerivedStateFromProps(props,‌ ‌state)‌ ‌{‌ ‌
+    ‌if‌ ‌(props.email‌ ‌!==‌ ‌state.email)‌ ‌{‌ ‌
+      ‌return‌ ‌{‌ ‌
+        ‌email:‌ ‌props.email‌ ‌
+      ‌}‌ ‌
+    ‌}‌ ‌
+    ‌return‌ ‌null‌ ‌
+}‌ ‌
+render()‌ ‌{‌ ‌
+        ‌return‌ ‌<p>Hello‌ ‌world!</p>‌ ‌
+ ‌}‌ ‌
+getSnapshotBeforeUpdate(prevProps,‌ ‌prevState)‌ ‌{‌ ‌
+    ‌if‌ ‌(prevProps.prop1‌ ‌!==‌ ‌this.props.prop1)‌ ‌{‌ ‌
+      ‌return‌ ‌“Prop‌ ‌mismatch”;‌ ‌
+    ‌}‌ ‌
+    ‌return‌ ‌null‌ ‌
+}‌ ‌
+
+componentDidUpdate(prevProps,‌ ‌prevState,‌ ‌snapshot)‌ ‌{‌ ‌
+  ‌if‌ ‌(this.props.id‌ ‌!==‌ ‌prevProps.id)‌ ‌{‌ ‌
+    ‌//‌ ‌perform‌ ‌a‌ ‌new‌ ‌network‌ ‌request‌ ‌and‌ ‌update‌ ‌state‌ ‌
+  ‌}‌ ‌
+}‌ ‌
+ ‌

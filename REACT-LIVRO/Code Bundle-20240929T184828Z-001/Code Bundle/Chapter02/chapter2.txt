@@ -1,0 +1,115 @@
+node‌ ‌-v‌‌
+sudo‌ ‌apt-get‌ ‌update‌ ‌&&‌ ‌sudo‌ ‌apt-get‌ ‌install‌ ‌npm‌ ‌
+apt-get‌ ‌‌
+sudo‌ ‌npm‌ ‌install‌ ‌-g‌ ‌n‌ ‌
+sudo‌ ‌n‌ ‌stable‌
+node‌ ‌-v‌‌
+/usr/bin/ruby‌ ‌-e‌ ‌"$(curl‌ ‌-fsSL‌ ‌
+https://raw.githubusercontent.com/Homebrew/install/master/install)"‌ ‌
+brew‌ ‌install‌ ‌node‌
+
+
+<!doctype‌ ‌HTML>‌ ‌
+<html>‌ ‌
+  ‌<head>‌ ‌
+    ‌<title>React‌ ‌hello‌ ‌world</title>‌ ‌
+  ‌</head>‌ ‌
+<body>‌ ‌
+  ‌<div‌ ‌id="root"></div>‌ ‌
+  ‌<script‌ ‌src="https://unpkg.com/react@16/umd/react.production.min.js"></script>‌ ‌
+  ‌<script‌ ‌src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>‌ ‌
+  ‌<script‌ ‌src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>‌ ‌
+ ‌ ‌
+  ‌<script‌ ‌type="text/babel">‌ ‌
+    ‌class‌ ‌HelloWorld‌ ‌extends‌ ‌React.Component‌ ‌{‌ ‌
+        ‌render()‌ ‌{‌ ‌
+            ‌return‌ ‌(<p>Hello‌ ‌world</p>);‌ ‌
+        ‌}‌ ‌
+    ‌}‌ ‌
+    ‌ReactDOM.render(‌ ‌
+        ‌<HelloWorld‌ ‌/>,‌ ‌
+        ‌document.getElementById('root')‌ ‌
+    ‌);‌ ‌
+  ‌</script>‌ ‌
+</body>‌ ‌
+
+
+create-react-app‌‌
+npm‌ ‌install‌ ‌create-react-app‌ ‌-g‌ ‌
+create-react-app‌ ‌hello-world‌ ‌
+cd‌ ‌
+hello-world‌‌
+npm‌ ‌start‌ ‌
+
+cd‌ ‌hello-world-scratch‌ ‌
+npm‌ ‌init‌ ‌-y‌‌
+npm‌ ‌install‌ ‌react‌ ‌react-dom‌ ‌--save‌ ‌
+
+npm‌ ‌install‌ ‌webpack‌ ‌webpack-dev-server‌ ‌webpack-cli‌ ‌@babel/core‌ ‌babel-loader‌ ‌
+@babel/preset-env‌ ‌@babel/preset-react‌ ‌html-webpack-plugin‌ ‌--save-dev‌ ‌
+webpack-cli‌‌
+html-webpack-plugin‌‌
+@babel‌‌
+touch‌ ‌.babelrc‌
+.babelrc‌‌
+{‌ ‌"presets":‌ ‌["@babel/preset-env",‌ ‌"@babel/preset-react"]‌ ‌}‌ ‌
+const‌ ‌path‌ ‌=‌ ‌require('path');‌ ‌
+const‌ ‌HtmlWebpackPlugin‌ ‌=‌ ‌require('html-webpack-plugin');‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌{‌ ‌
+    ‌entry:‌ ‌path.join(__dirname,‌ ‌'src/index.js'),‌ ‌
+    ‌output:‌ ‌{‌ ‌
+        ‌path:‌ ‌path.join(__dirname,‌ ‌'bundle'),‌ ‌
+        ‌filename:‌ ‌'bundle.js'‌ ‌
+    ‌},‌ ‌
+    ‌module:‌ ‌{‌ ‌
+        ‌rules:‌ ‌[‌ ‌
+          ‌{‌ ‌
+            ‌test:‌ ‌/\.(js|jsx)$/,‌ ‌
+            ‌exclude:‌ ‌/node_modules/,‌ ‌
+            ‌use:‌ ‌['babel-loader']‌ ‌
+          ‌}‌ ‌
+        ‌]‌ ‌
+    ‌},‌ ‌
+    ‌mode:‌ ‌process.env.NODE_ENV‌ ‌||‌ ‌'development',‌ ‌
+    ‌resolve:‌ ‌{‌ ‌
+        ‌extensions:‌ ‌['*',‌ ‌'.js',‌ ‌'.jsx']‌ ‌
+    ‌},‌ ‌
+    ‌devServer:‌ ‌{‌ ‌
+        ‌contentBase:‌ ‌path.join(__dirname,‌ ‌'src')‌ ‌
+    ‌},‌ ‌
+    ‌plugins:‌ ‌[new‌ ‌HtmlWebpackPlugin({‌ ‌
+        ‌template:‌ ‌path.join(__dirname,‌ ‌'src/index.html')‌ ‌
+    ‌})]‌ ‌
+};‌ ‌
+"start":‌ ‌"webpack-dev-server‌ ‌--open"‌ ‌
+
+<!DOCTYPE‌ ‌html>‌ ‌
+<html‌ ‌lang="en">‌ ‌
+<head>‌ ‌
+    ‌<meta‌ ‌charset="UTF-8">‌ ‌
+    ‌<meta‌ ‌name="viewport"‌ ‌content="width=device-width,‌ ‌initial-scale=1.0">‌ ‌
+    ‌<meta‌ ‌http-equiv="X-UA-Compatible"‌ ‌content="ie=edge">‌ ‌
+    ‌<title>React‌ ‌Hello‌ ‌World!</title>‌ ‌
+</head>‌ ‌
+<body>‌ ‌
+    ‌<div‌ ‌id="root"></div>‌ ‌
+</body>‌ ‌
+</html>‌ ‌
+
+
+touch‌ ‌src/index.js‌‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom'‌ ‌
+ ‌
+ReactDOM.render(<div>Hello‌ ‌World</div>,‌ ‌document.getElementById('root'))‌ ‌
+npm‌ ‌start‌‌
+ReactDOM.render(<div>Hello‌ ‌World</div>,‌ ‌document.getElementById('root'))‌ ‌
+ ‌
+const‌ ‌elem‌ ‌=‌ ‌<div>Hello‌ ‌World‌ ‌{‌ ‌document.location.href‌ ‌}‌ ‌{‌ ‌5‌ ‌+‌ ‌5‌ ‌}‌ ‌{‌ ‌`Regular‌ ‌string`‌ ‌}‌ ‌</div>‌ ‌
+ ‌
+const‌ ‌elem‌ ‌=‌ ‌<div‌ ‌className="a-classy-div">JSX‌ ‌seems‌ ‌so‌ ‌cool!</div>‌ ‌
+const‌ ‌elem‌ ‌=‌ ‌React.createElement(‘div’,‌ ‌{‌ ‌className:‌ ‌‘a-classy-div’,‌ ‌‘JSX‌ ‌seems‌ ‌so‌ ‌cool!’‌ ‌})‌ ‌
+create-react-app‌‌
+create-react-app‌ ‌hello-world-ts‌ ‌--typescript‌ ‌

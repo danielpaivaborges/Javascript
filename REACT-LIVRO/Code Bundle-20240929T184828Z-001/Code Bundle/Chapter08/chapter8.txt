@@ -1,0 +1,240 @@
+create-react-app‌‌
+create-react-app‌ ‌pwa-app‌ ‌--typescript‌ ‌
+src/index.tsx‌‌
+import‌ ‌React‌ ‌from‌ ‌'react';‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌'react-dom';‌ ‌
+import‌ ‌'./index.css';‌ ‌
+import‌ ‌App‌ ‌from‌ ‌'./App';‌ ‌
+import‌ ‌*‌ ‌as‌ ‌serviceWorker‌ ‌from‌ ‌'./serviceWorker';‌ ‌
+ ‌
+ReactDOM.render(<App‌ ‌/>,‌ ‌document.getElementById('root'));‌ ‌
+ ‌
+//‌ ‌If‌ ‌you‌ ‌want‌ ‌your‌ ‌app‌ ‌to‌ ‌work‌ ‌offline‌ ‌and‌ ‌load‌ ‌faster,‌ ‌you‌ ‌can‌ ‌change‌ ‌
+//‌ ‌unregister()‌ ‌to‌ ‌register()‌ ‌below.‌ ‌Note‌ ‌this‌ ‌comes‌ ‌with‌ ‌some‌ ‌pitfalls.‌ ‌
+//‌ ‌Learn‌ ‌more‌ ‌about‌ ‌service‌ ‌workers:‌ ‌https://bit.ly/CRA-PWA‌ ‌
+serviceWorker.unregister();‌ ‌
+unregister‌‌
+register‌‌
+npm‌ ‌run‌ ‌build‌
+python‌ ‌-m‌ ‌SimpleHTTPServer‌ ‌1234‌ ‌#‌ ‌for‌ ‌python‌ ‌2‌ ‌
+python3‌ ‌-m‌ ‌http.server‌ ‌1234‌ ‌
+php‌ ‌-S‌ ‌localhost:1234‌ ‌
+http://localhost:1234‌
+public‌‌
+manifest.json‌‌
+<link‌ ‌rel="manifest"‌ ‌href="%PUBLIC_URL%/manifest.json"‌ ‌/>‌ ‌
+manifest.json‌‌
+{‌ ‌
+  ‌"short_name":‌ ‌"React‌ ‌App",‌ ‌
+  ‌"name":‌ ‌"Create‌ ‌React‌ ‌App‌ ‌Sample",‌ ‌
+  ‌"icons":‌ ‌[‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"favicon.ico",‌ ‌
+      ‌"sizes":‌ ‌"64x64‌ ‌32x32‌ ‌24x24‌ ‌16x16",‌ ‌
+      ‌"type":‌ ‌"image/x-icon"‌ ‌
+    ‌},‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"logo192.png",‌ ‌
+      ‌"type":‌ ‌"image/png",‌ ‌
+      ‌"sizes":‌ ‌"192x192"‌ ‌
+    ‌},‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"logo512.png",‌ ‌
+      ‌"type":‌ ‌"image/png",‌ ‌
+      ‌"sizes":‌ ‌"512x512"‌ ‌
+    ‌}‌ ‌
+  ‌],‌ ‌
+  ‌"start_url":‌ ‌".",‌ ‌
+  ‌"display":‌ ‌"standalone",‌ ‌
+  ‌"theme_color":‌ ‌"#000000",‌ ‌
+  ‌"background_color":‌ ‌"#ffffff"‌ ‌
+}‌ ‌
+/?utm_source=app_opened‌‌
+
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");‌ ‌
+ ‌
+importScripts(‌ ‌
+  ‌"/precache-manifest.01aeacade56ec22296e752a5407421fc.js"‌ ‌
+);‌ ‌
+
+self.__precacheManifest‌ ‌=‌ ‌[].concat(self.__precacheManifest‌ ‌||‌ ‌[]);‌ ‌
+workbox.precaching.precacheAndRoute(self.__precacheManifest,‌ ‌{});‌ ‌
+ ‌
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/index.ht‌
+ml"),‌ ‌{‌ ‌
+  ‌blacklist:‌ ‌[/^\/_/,/\/[^\/?]+\.[^\/]+$/],‌ ‌
+});‌ ‌
+ ‌
+
+//‌ ‌next.config.js‌ ‌
+const‌ ‌withOffline‌ ‌=‌ ‌require('next-offline')‌ ‌
+ ‌
+const‌ ‌nextConfig‌ ‌=‌ ‌{}‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌withOffline(nextConfig)‌ ‌
+
+server.js‌‌
+const‌ ‌{‌ ‌createServer‌ ‌}‌ ‌=‌ ‌require('http')‌ ‌
+const‌ ‌{‌ ‌join‌ ‌}‌ ‌=‌ ‌require('path')‌ ‌
+const‌ ‌{‌ ‌parse‌ ‌}‌ ‌=‌ ‌require('url')‌ ‌
+const‌ ‌next‌ ‌=‌ ‌require('next')‌ ‌
+ ‌
+const‌ ‌app‌ ‌=‌ ‌next({‌ ‌dev:‌ ‌process.env.NODE_ENV‌ ‌!==‌ ‌'production'‌ ‌})‌ ‌
+const‌ ‌handle‌ ‌=‌ ‌app.getRequestHandler()‌ ‌
+ ‌
+app.prepare()‌ ‌
+  ‌.then(()‌ ‌=>‌ ‌{‌ ‌
+    ‌createServer((req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+      ‌const‌ ‌parsedUrl‌ ‌=‌ ‌parse(req.url,‌ ‌true)‌ ‌
+      ‌const‌ ‌{‌ ‌pathname‌ ‌}‌ ‌=‌ ‌parsedUrl‌ ‌
+ ‌
+      ‌//‌ ‌handle‌ ‌GET‌ ‌request‌ ‌to‌ ‌/service-worker.js‌ ‌
+      ‌if‌ ‌(pathname‌ ‌===‌ ‌'/service-worker.js')‌ ‌{‌ ‌
+        ‌const‌ ‌filePath‌ ‌=‌ ‌join(__dirname,‌ ‌'.next',‌ ‌pathname)‌ ‌
+ ‌
+        ‌app.serveStatic(req,‌ ‌res,‌ ‌filePath)‌ ‌
+      ‌}‌ ‌else‌ ‌{‌ ‌
+        ‌handle(req,‌ ‌res,‌ ‌parsedUrl)‌ ‌
+      ‌}‌ ‌
+    ‌})‌ ‌
+    ‌.listen(3000,‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+      ‌console.log(`>‌ ‌Ready‌ ‌on‌ ‌http://localhost:${3000}`)‌ ‌
+    ‌})‌ ‌
+  ‌})‌ ‌
+
+
+"scripts":‌ ‌{‌ ‌
+    ‌"dev":‌ ‌"node‌ ‌server.js",‌ ‌
+    ‌"build":‌ ‌"next‌ ‌build",‌ ‌
+    ‌"start":‌ ‌"NODE_ENV=production‌ ‌node‌ ‌server.js"‌ ‌
+}‌ ‌
+
+{‌ ‌
+  ‌"short_name":‌ ‌"React‌ ‌App",‌ ‌
+  ‌"name":‌ ‌"Create‌ ‌React‌ ‌App‌ ‌Sample",‌ ‌
+  ‌"icons":‌ ‌[‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"favicon.ico",‌ ‌
+      ‌"sizes":‌ ‌"64x64‌ ‌32x32‌ ‌24x24‌ ‌16x16",‌ ‌
+      ‌"type":‌ ‌"image/x-icon"‌ ‌
+    ‌},‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"logo192.png",‌ ‌
+      ‌"type":‌ ‌"image/png",‌ ‌
+      ‌"sizes":‌ ‌"192x192"‌ ‌
+    ‌},‌ ‌
+    ‌{‌ ‌
+      ‌"src":‌ ‌"logo512.png",‌ ‌
+      ‌"type":‌ ‌"image/png",‌ ‌
+      ‌"sizes":‌ ‌"512x512"‌ ‌
+    ‌}‌ ‌
+  ‌],‌ ‌
+  ‌"start_url":‌ ‌".",‌ ‌
+  ‌"display":‌ ‌"standalone",‌ ‌
+  ‌"theme_color":‌ ‌"#000000",‌ ‌
+  ‌"background_color":‌ ‌"#ffffff"‌ ‌
+}‌
+const‌ ‌{‌ ‌createServer‌ ‌}‌ ‌=‌ ‌require('http')‌ ‌
+const‌ ‌{‌ ‌join‌ ‌}‌ ‌=‌ ‌require('path')‌ ‌
+const‌ ‌{‌ ‌parse‌ ‌}‌ ‌=‌ ‌require('url')‌ ‌
+const‌ ‌next‌ ‌=‌ ‌require('next')‌ ‌
+ ‌
+const‌ ‌app‌ ‌=‌ ‌next({‌ ‌dev:‌ ‌process.env.NODE_ENV‌ ‌!==‌ ‌'production'‌ ‌})‌ ‌
+const‌ ‌handle‌ ‌=‌ ‌app.getRequestHandler()‌ ‌
+ ‌
+app.prepare()‌ ‌
+.then(()‌ ‌=>‌ ‌{‌ ‌
+createServer((req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+
+const‌ ‌parsedUrl‌ ‌=‌ ‌parse(req.url,‌ ‌true)‌ ‌
+
+const‌ ‌{‌ ‌pathname‌ ‌}‌ ‌=‌ ‌parsedUrl‌ ‌
+ ‌
+
+//‌ ‌handle‌ ‌GET‌ ‌request‌ ‌to‌ ‌/service-worker.js‌ ‌
+
+if‌ ‌(pathname‌ ‌===‌ ‌'/service-worker.js'‌ ‌||‌ ‌pathname‌ ‌===‌ ‌'/manifest.json'‌ ‌||‌ ‌
+pathname‌ ‌===‌ ‌'/logo512.png'‌ ‌||‌ ‌pathname‌ ‌===‌ ‌'/logo192.png')‌ ‌{‌ ‌
+
+
+const‌ ‌filePath‌ ‌=‌ ‌join(__dirname,‌ ‌'.next',‌ ‌pathname)‌ ‌
+ ‌
+
+
+app.serveStatic(req,‌ ‌res,‌ ‌filePath)‌ ‌
+
+}‌ ‌else‌ ‌{‌ ‌
+
+
+handle(req,‌ ‌res,‌ ‌parsedUrl)‌ ‌
+
+}‌ ‌
+})‌ ‌
+
+.listen(3000,‌ ‌()‌ ‌=>‌ ‌{‌ ‌
+
+
+console.log(`>‌ ‌Ready‌ ‌on‌ ‌http://localhost:${3000}`)‌ ‌
+
+})‌ ‌
+})‌ ‌
+ ‌
+
+//‌ ‌pages/_document.js‌ ‌
+import‌ ‌Document,‌ ‌{‌ ‌Html,‌ ‌Head,‌ ‌Main,‌ ‌NextScript‌ ‌}‌ ‌from‌ ‌'next/document'‌ ‌
+ ‌
+class‌ ‌MyDocument‌ ‌extends‌ ‌Document‌ ‌{‌ ‌
+static‌ ‌async‌ ‌getInitialProps(ctx)‌ ‌{‌ ‌
+
+const‌ ‌initialProps‌ ‌=‌ ‌await‌ ‌Document.getInitialProps(ctx)‌ ‌
+
+return‌ ‌{‌ ‌...initialProps‌ ‌}‌ ‌
+}‌ ‌
+ ‌
+render()‌ ‌{‌ ‌
+
+return‌ ‌(‌ ‌
+
+
+<Html>‌ ‌
+
+
+
+<Head>‌ ‌
+
+
+
+
+<link‌ ‌rel="manifest"‌ ‌href="/manifest.json"‌ ‌/>‌ ‌
+
+
+
+</Head>‌ ‌
+
+
+
+<body>‌ ‌
+
+
+
+
+<Main‌ ‌/>‌ ‌
+
+
+
+
+<NextScript‌ ‌/>‌ ‌
+
+
+
+</body>‌ ‌
+
+
+</Html>‌ ‌
+
+)‌ ‌
+}‌ ‌
+}‌ ‌
+ ‌
+export‌ ‌default‌ ‌MyDocument‌ ‌
+ 

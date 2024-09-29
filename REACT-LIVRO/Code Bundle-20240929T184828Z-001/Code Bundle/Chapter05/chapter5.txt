@@ -1,0 +1,576 @@
+ReactDOM.render(<App‌ ‌/>,‌ ‌element)‌
+
+
+cd‌‌
+npm‌ ‌init‌ ‌-y‌‌
+npm‌ ‌install‌ ‌react‌ ‌react-dom‌ ‌express‌ ‌--save‌ ‌
+npm‌ ‌install‌ ‌@babel/core‌ ‌@babel/preset-react‌ ‌@babel/register‌ ‌webpack‌ ‌webpack-cli‌ ‌--save-dev‌ ‌
+
+"dependencies":‌ ‌{‌ ‌
+    ‌"express":‌ ‌"^4.16.3",‌ ‌
+    ‌"react":‌ ‌"^16.9.0",‌ ‌
+    ‌"react-dom":‌ ‌"^16.9.0"‌ ‌
+  ‌},‌ ‌
+  ‌"devDependencies":‌ ‌{‌ ‌
+    ‌"babel-loader":‌ ‌"^8.0.6",‌ ‌
+    ‌"@babel/core":‌ ‌"^7.6.0",‌ ‌
+    ‌"@babel/preset-react":‌ ‌"^7.0.0",‌ ‌
+    ‌"@babel/register":‌ ‌"^7.6.0",‌ ‌
+    ‌"webpack":‌ ‌"^4.19.1"‌ ‌
+    ‌"webpack-cli":‌ ‌"^3.3.2"‌ ‌
+  ‌},‌ ‌
+
+ ‌
+require("@babel/register")(‌ ‌{‌ ‌
+    ‌presets:‌ ‌[‌ ‌"@babel/preset-react"‌ ‌]‌ ‌
+}‌ ‌)‌ ‌
+require(‌ ‌"./src/server"‌ ‌)‌ ‌
+@babel/register‌
+.babelrc‌‌
+server.js‌‌
+//‌ ‌server.js‌ ‌
+const‌ ‌express‌ ‌=‌ ‌require("express")‌ ‌
+const‌ ‌app‌ ‌=‌ ‌express()‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require("react")‌ ‌
+const‌ ‌{‌ ‌renderToString‌ ‌}‌ ‌=‌ ‌require("react-dom/server")‌ ‌
+ ‌
+app.get('/*',‌ ‌(req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+const‌ ‌jsx‌ ‌=‌ ‌<div>Hello</div>‌ ‌
+const‌ ‌reactDom‌ ‌=‌ ‌renderToString(jsx)‌ ‌
+res.send(template(reactDom))‌ ‌
+});‌ ‌
+ ‌
+app.listen(1337)‌ ‌
+ ‌
+function‌ ‌template(reactDom)‌ ‌{‌ ‌
+    ‌return‌ ‌`‌ ‌
+        ‌<!DOCTYPE‌ ‌html>‌ ‌
+        ‌<html>‌ ‌
+        ‌<head>‌ ‌
+            ‌<meta‌ ‌charset="utf-8">‌ ‌
+            ‌<title>React‌ ‌SSR</title>‌ ‌
+        ‌</head>‌ ‌
+ ‌ ‌
+        ‌<body>‌ ‌
+
+
+<div‌ ‌id="root">${reactDom}</div>‌ ‌
+
+
+ ‌
+        ‌</body>‌ ‌
+        ‌</html>‌ ‌
+    ‌`‌ ‌
+}‌ ‌
+
+
+ ‌
+//‌ ‌Home.js‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+ ‌
+function‌ ‌Home(props)‌ ‌{‌ ‌
+return‌ ‌<div‌ ‌className="home">‌ ‌
+
+
+<h2>Hello,‌ ‌this‌ ‌is‌ ‌homepage!‌ ‌Go‌ ‌to‌ ‌<a‌ ‌href="/about">About</a></h2>‌ ‌
+
+</div>‌ ‌
+}‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌Home‌ ‌
+
+
+About.js‌‌
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+ ‌
+function‌ ‌About(props)‌ ‌{‌ ‌
+    ‌return‌ ‌<div‌ ‌className="about">‌ ‌
+        ‌<h2>This‌ ‌is‌ ‌the‌ ‌about‌ ‌page</h2>‌ ‌
+    ‌</div>‌ ‌
+}‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌About‌ ‌
+
+npm‌ ‌install‌ ‌react-router-dom‌ ‌--save‌ ‌
+
+server.js‌‌
+//‌ ‌server.js‌ ‌
+const‌ ‌express‌ ‌=‌ ‌require("express")‌ ‌
+const‌ ‌app‌ ‌=‌ ‌express()‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require("react")‌ ‌
+ ‌
+const‌ ‌ReactDOMServer‌ ‌=‌ ‌require("react-dom/server")‌ ‌
+const‌ ‌{‌ ‌StaticRouter,‌ ‌Switch,‌ ‌Route‌ ‌}‌ ‌=‌ ‌require("react-router-dom")‌ ‌
+const‌ ‌Home‌ ‌=‌ ‌require('./components/Home')‌ ‌
+const‌ ‌About‌ ‌=‌ ‌require('./components/About')‌ ‌
+ ‌
+app.get('/*',‌ ‌(req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+const‌ ‌jsx‌ ‌=‌ ‌<StaticRouter>‌ ‌
+
+
+<Switch>‌ ‌
+
+
+
+<Route‌ ‌path="/"‌ ‌component={Home}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+
+<Route‌ ‌path="/about"‌ ‌component={About}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+</Switch>‌ ‌
+
+</StaticRouter>‌ ‌
+const‌ ‌reactDom‌ ‌=‌ ‌ReactDOMServer.renderToString(jsx)‌ ‌
+res.send(template(reactDom))‌ ‌
+});‌ ‌
+ ‌
+app.listen(1337)‌ ‌
+ ‌
+function‌ ‌template(reactDom)‌ ‌{‌ ‌
+    ‌return‌ ‌`‌ ‌
+        ‌<!DOCTYPE‌ ‌html>‌ ‌
+        ‌<html>‌ ‌
+        ‌<head>‌ ‌
+            ‌<meta‌ ‌charset="utf-8">‌ ‌
+            ‌<title>React‌ ‌SSR</title>‌ ‌
+        ‌</head>‌ ‌
+ ‌ ‌
+        ‌<body>‌ ‌
+
+
+<div‌ ‌id="root">${reactDom}</div>‌ ‌
+        ‌</body>‌ ‌
+        ‌</html>‌ ‌
+    ‌`‌ ‌
+}‌ ‌
+
+
+server.js‌
+<StaticRouter‌ ‌location={req.url}>‌ ‌
+<Switch>‌ ‌
+
+<Route‌ ‌path="/"‌ ‌component={Home}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+<Route‌ ‌path="/about"‌ ‌component={About}‌ ‌exact={true}‌ ‌/>‌ ‌
+</Switch>‌ ‌
+</StaticRouter>‌ ‌
+ ‌location={req.url}‌ ‌‌
+
+import‌ ‌React‌ ‌from‌ ‌‘react’‌ ‌
+import‌ ‌ReactDOM‌ ‌from‌ ‌‘react-dom’‌ ‌
+import‌ ‌Home‌ ‌from‌ ‌'./components/Home'‌ ‌
+import‌ ‌About‌ ‌from‌ ‌'./components/About'‌ ‌
+import‌ ‌{‌ ‌BrowserRouter‌ ‌as‌ ‌Router,‌ ‌Route,‌ ‌Switch‌ ‌}‌ ‌from‌ ‌'react-router-dom'‌ ‌
+ ‌
+const‌ ‌jsx‌ ‌=‌ ‌(‌ ‌
+<Router>‌ ‌
+
+<Switch>‌ ‌
+
+
+<Route‌ ‌path="/"‌ ‌component={Home}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+<Route‌ ‌path="/about"‌ ‌component={About}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+</Switch>‌ ‌
+</Router>‌ ‌
+)‌ ‌
+ ‌
+const‌ ‌app‌ ‌=‌ ‌document.getElementById('root')‌ ‌
+ReactDOM.hydrate(jsx,‌ ‌app)‌ ‌
+
+const‌ ‌express‌ ‌=‌ ‌require("express")‌ ‌
+const‌ ‌app‌ ‌=‌ ‌express()‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require("react")‌ ‌
+ ‌
+const‌ ‌ReactDOMServer‌ ‌=‌ ‌require("react-dom/server")‌ ‌
+const‌ ‌{‌ ‌StaticRouter,‌ ‌Switch,‌ ‌Route‌ ‌}‌ ‌=‌ ‌require("react-router-dom")‌ ‌
+const‌ ‌Home‌ ‌=‌ ‌require('./components/Home')‌ ‌
+const‌ ‌About‌ ‌=‌ ‌require('./components/About')‌ ‌
+ ‌
+app.use(express.static(path.resolve(__dirname,‌ ‌'../dist')))‌ ‌
+ ‌
+app.get('/*',‌ ‌(req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+console.log(req.url)‌ ‌
+const‌ ‌jsx‌ ‌=‌ ‌<StaticRouter‌ ‌location={req.url}>‌ ‌
+
+
+<Switch>‌ ‌
+
+
+
+<Route‌ ‌path="/"‌ ‌component={Home}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+
+<Route‌ ‌path="/about"‌ ‌component={About}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+</Switch>‌ ‌
+
+</StaticRouter>‌ ‌
+const‌ ‌reactDom‌ ‌=‌ ‌ReactDOMServer.renderToString(jsx)‌ ‌
+res.send(template(reactDom))‌ ‌
+});‌ ‌
+ ‌
+app.listen(1337)‌ ‌
+ ‌
+function‌ ‌template(reactDom)‌ ‌{‌ ‌
+    ‌return‌ ‌`‌ ‌
+        ‌<!DOCTYPE‌ ‌html>‌ ‌
+        ‌<html>‌ ‌
+        ‌<head>‌ ‌
+            ‌<meta‌ ‌charset="utf-8">‌ ‌
+            ‌<title>React‌ ‌SSR</title>‌ ‌
+        ‌</head>‌ ‌
+ ‌ ‌
+        ‌<body>‌ ‌
+
+
+<div‌ ‌id="root">${reactDom}</div>‌ ‌
+
+
+‌
+<script‌ ‌src="./app.bundle.js"></script>‌ ‌
+        ‌</body>‌ ‌
+        ‌</html>‌ ‌
+    ‌`‌ ‌
+}‌ ‌
+
+
+const‌ ‌path‌ ‌=‌ ‌require('path')‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌{‌ ‌
+    ‌mode:‌ ‌'development',‌ ‌
+    ‌devtool:‌ ‌'source-map',‌ ‌
+    ‌entry:‌ ‌{‌ ‌
+        ‌app:‌ ‌'./src/client.js',‌ ‌
+    ‌},‌ ‌
+    ‌module:‌ ‌{‌ ‌
+        ‌rules:‌ ‌[‌ ‌
+            ‌{‌ ‌
+                ‌test:‌ ‌/\.jsx?$/,‌ ‌
+                ‌exclude:‌ ‌/(node_modules|bower_components)/,‌ ‌
+                ‌loader:‌ ‌"babel-loader",‌ ‌
+
+
+}‌ ‌
+        ‌],‌ ‌
+    ‌},‌ ‌
+    ‌output:‌ ‌{‌ ‌
+        ‌path:‌ ‌path.resolve(__dirname,‌ ‌'dist'),‌ ‌
+        ‌filename:‌ ‌'[name].bundle.js',‌ ‌
+    ‌}‌ ‌
+}‌ ‌
+
+
+ ‌.babelrc‌‌
+{‌ ‌
+"presets":‌ ‌[‌ ‌
+
+"@babel/preset-react"‌ ‌
+],‌ ‌
+"plugins":‌ ‌["@babel/plugin-syntax-dynamic-import"]‌ ‌
+}‌
+
+
+ ‌
+"scripts":‌ ‌{‌ ‌
+    ‌"server":‌ ‌"nodemon‌ ‌index.js",‌ ‌
+    ‌"client":‌ ‌"webpack‌ ‌--watch‌ ‌--progress"‌ ‌
+  ‌}‌
+npm‌ ‌run‌ ‌server‌‌
+npm‌ ‌run‌ ‌client‌ ‌
+http://localhost:1337‌‌
+app.bundle.js‌‌
+
+
+//‌ ‌Home.js‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+const‌ ‌{‌ ‌Link‌ ‌}‌ ‌=‌ ‌require('react-router-dom')‌ ‌
+ ‌
+function‌ ‌Home(props)‌ ‌{‌ ‌
+return‌ ‌<div‌ ‌className="home">‌ ‌
+
+
+<h2>Hello,‌ ‌this‌ ‌is‌ ‌homepage!‌ ‌Go‌ ‌to‌ ‌<Link‌ ‌
+to="/about">About</Link></h2>‌ ‌
+
+</div>‌ ‌
+}‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌Home‌ ‌
+
+
+npm‌ ‌install‌ ‌isomorphic-fetch‌ ‌--save‌
+
+//‌ ‌Home.js‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+const‌ ‌{‌ ‌Link‌ ‌}‌ ‌=‌ ‌require('react-router-dom')‌ ‌
+require('isomorphic-fetch')‌ ‌
+ ‌
+const‌ ‌{‌ ‌useEffect,‌ ‌useState‌ ‌}‌ ‌=‌ ‌React‌ ‌
+ ‌
+function‌ ‌Home(props)‌ ‌{‌ ‌
+ ‌
+const‌ ‌[data,‌ ‌setData]‌ ‌=‌ ‌useState(null)‌ ‌
+ ‌
+useEffect(()‌ ‌=>‌ ‌{‌ ‌
+
+fetch('https://jsonplaceholder.typicode.com/posts/1').then(data‌ ‌=>‌ ‌data.json())‌ ‌
+
+.then(data‌ ‌=>‌ ‌setData(data))‌ ‌
+},‌ ‌[])‌ ‌
+ ‌
+if(!data)‌ ‌return‌ ‌<p>Loading...</p>‌ ‌
+ ‌
+return‌ ‌<div‌ ‌className="home">‌ ‌
+
+
+<h2>{data.title}</h2>‌ ‌
+
+
+<p>{data.body}</p>‌ ‌
+
+
+<Link‌ ‌to="/about">About</Link>‌ ‌
+
+</div>‌ ‌
+}‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌Home‌
+useEffect‌‌
+
+//‌ ‌Home.js‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+const‌ ‌{‌ ‌Link‌ ‌}‌ ‌=‌ ‌require('react-router-dom')‌ ‌
+require('isomorphic-fetch')‌ ‌
+ ‌
+const‌ ‌{‌ ‌useEffect,‌ ‌useState‌ ‌}‌ ‌=‌ ‌React‌ ‌
+ ‌
+function‌ ‌Home(props)‌ ‌{‌ ‌
+ ‌
+const‌ ‌[data,‌ ‌setData]‌ ‌=‌ ‌useState(process.env.BROWSER‌ ‌&&‌ ‌
+window.componentsData[Home.name])‌ ‌
+ ‌
+useEffect(()‌ ‌=>‌ ‌{‌ ‌
+
+if(!data)‌ ‌{‌ ‌
+
+
+fetch('https://jsonplaceholder.typicode.com/posts/1').then(data‌ ‌=>‌ ‌
+data.json())‌ ‌
+
+
+.then(data‌ ‌=>‌ ‌setData(data))‌ ‌
+
+}‌ ‌
+},‌ ‌[])‌ ‌
+ ‌
+if(!data)‌ ‌return‌ ‌<p>Loading...</p>‌ ‌
+ ‌
+return‌ ‌<div‌ ‌className="home">‌ ‌
+
+
+<h1>This‌ ‌is‌ ‌home‌ ‌page</h1>‌ ‌
+
+
+<h2>{data.title}</h2>‌ ‌
+
+
+<p>{data.body}</p>‌ ‌
+
+
+<Link‌ ‌to="/about">About</Link>‌ ‌
+
+</div>‌ ‌
+}‌ ‌
+ ‌
+Home.asyncData‌ ‌=‌ ‌'https://jsonplaceholder.typicode.com/posts/1'‌ ‌
+ ‌
+
+const‌ ‌React‌ ‌=‌ ‌require('react')‌ ‌
+const‌ ‌{‌ ‌Link‌ ‌}‌ ‌=‌ ‌require('react-router-dom')‌ ‌
+ ‌
+const‌ ‌{‌ ‌useState,‌ ‌useEffect‌ ‌}‌ ‌=‌ ‌React‌ ‌
+ ‌
+function‌ ‌About(props)‌ ‌{‌ ‌
+ ‌
+const‌ ‌[data,‌ ‌setData]‌ ‌=‌ ‌useState(process.env.BROWSER‌ ‌&&‌ ‌
+window.componentsData[About.name])‌ ‌
+ ‌
+useEffect(()‌ ‌=>‌ ‌{‌ ‌
+
+if(!data)‌ ‌{‌ ‌
+
+
+fetch('https://jsonplaceholder.typicode.com/posts/2').then(data‌ ‌=>‌ ‌
+data.json())‌ ‌
+
+
+.then(data‌ ‌=>‌ ‌setData(data))‌ ‌
+
+}‌ ‌
+},‌ ‌[])‌ ‌
+ ‌
+if(!data)‌ ‌return‌ ‌<p>Loading...</p>‌ ‌
+ ‌
+    ‌return‌ ‌<div‌ ‌className="about">‌ ‌
+        ‌<h1>This‌ ‌is‌ ‌home‌ ‌page</h1>‌ ‌
+
+<h2>{data.title}</h2>‌ ‌
+
+<p>{data.body}</p>‌ ‌
+
+<Link‌ ‌to="/">Home</Link>‌ ‌
+    ‌</div>‌ ‌
+}‌ ‌
+ ‌
+About.asyncData‌ ‌=‌ ‌'https://jsonplaceholder.typicode.com/posts/2'‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌About‌ ‌
+
+
+const‌ ‌path‌ ‌=‌ ‌require('path')‌ ‌
+const‌ ‌webpack‌ ‌=‌ ‌require('webpack')‌ ‌
+ ‌
+module.exports‌ ‌=‌ ‌{‌ ‌
+    ‌mode:‌ ‌'development',‌ ‌
+    ‌devtool:‌ ‌'source-map',‌ ‌
+    ‌entry:‌ ‌{‌ ‌
+        ‌app:‌ ‌'./src/client.js',‌ ‌
+    ‌},‌ ‌
+    ‌module:‌ ‌{‌ ‌
+        ‌rules:‌ ‌[‌ ‌
+            ‌{‌ ‌
+                ‌test:‌ ‌/\.jsx?$/,‌ ‌
+                ‌exclude:‌ ‌/(node_modules|bower_components)/,‌ ‌
+                ‌loader:‌ ‌"babel-loader",‌ ‌
+
+
+}‌ ‌
+        ‌],‌ ‌
+    ‌},‌ ‌
+    ‌output:‌ ‌{‌ ‌
+        ‌path:‌ ‌path.resolve(__dirname,‌ ‌'dist'),‌ ‌
+        ‌filename:‌ ‌'[name].bundle.js',‌ ‌
+},‌ ‌
+plugins:‌ ‌[‌ ‌
+
+new‌ ‌webpack.DefinePlugin({‌ ‌
+
+
+'process.env':‌ ‌{‌ ‌
+
+
+  ‌'BROWSER':‌ ‌'true',‌ ‌
+
+
+}‌ ‌
+
+})‌ ‌
+]‌ ‌
+}‌
+ ‌server.js‌‌
+const‌ ‌express‌ ‌=‌ ‌require("express")‌ ‌
+const‌ ‌app‌ ‌=‌ ‌express()‌ ‌
+const‌ ‌React‌ ‌=‌ ‌require("react")‌ ‌
+const‌ ‌path‌ ‌=‌ ‌require('path')‌ ‌
+ ‌
+const‌ ‌ReactDOMServer‌ ‌=‌ ‌require("react-dom/server")‌ ‌
+const‌ ‌{‌ ‌StaticRouter,‌ ‌Switch,‌ ‌Route‌ ‌}‌ ‌=‌ ‌require("react-router-dom")‌ ‌
+const‌ ‌Home‌ ‌=‌ ‌require('./components/Home')‌ ‌
+const‌ ‌About‌ ‌=‌ ‌require('./components/About')‌ ‌
+require('isomorphic-fetch')‌ ‌
+ ‌
+app.use(express.static(path.resolve(__dirname,‌ ‌'../dist')))‌ ‌
+ ‌
+app.get('/*',‌ ‌(req,‌ ‌res)‌ ‌=>‌ ‌{‌ ‌
+ ‌
+const‌ ‌components‌ ‌=‌ ‌[Home,‌ ‌About]‌ ‌
+const‌ ‌asyncData‌ ‌=‌ ‌{}‌ ‌
+ ‌
+‌
+const‌ ‌promises‌ ‌=‌ ‌components.map(c‌ ‌=>‌ ‌({‌ ‌
+
+
+link:‌ ‌c.asyncData,‌ ‌
+
+
+name:‌ ‌c.name‌ ‌
+
+})).filter(item‌ ‌=>‌ ‌item.link).map(item‌ ‌=>‌ ‌{‌ ‌
+
+
+return‌ ‌fetch(item.link).then(data‌ ‌=>‌ ‌data.json()).then(json‌ ‌=>‌ ‌{‌ ‌
+
+
+
+asyncData[item.name]‌ ‌=‌ ‌json‌ ‌
+
+
+})‌ ‌
+})‌ ‌
+ ‌
+const‌ ‌jsx‌ ‌=‌ ‌<StaticRouter‌ ‌location={req.url}>‌ ‌
+
+<Switch>‌ ‌
+
+
+<Route‌ ‌path="/"‌ ‌component={Home}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+
+<Route‌ ‌path="/about"‌ ‌component={About}‌ ‌exact={true}‌ ‌/>‌ ‌
+
+</Switch>‌ ‌
+</StaticRouter>‌ ‌
+ ‌
+Promise.all(promises).then(()‌ ‌=>‌ ‌{‌ ‌
+
+const‌ ‌reactDom‌ ‌=‌ ‌ReactDOMServer.renderToString(jsx)‌ ‌
+
+res.send(template(reactDom,‌ ‌‌
+asyncData‌
+))‌ ‌
+})‌ ‌
+ ‌
+})‌ ‌
+ ‌
+app.listen(1337)‌ ‌
+ ‌
+function‌ ‌template(reactDom,‌ ‌‌
+data‌
+)‌ ‌{‌ ‌
+    ‌return‌ ‌`‌ ‌
+        ‌<!DOCTYPE‌ ‌html>‌ ‌
+        ‌<html>‌ ‌
+        ‌<head>‌ ‌
+            ‌<meta‌ ‌charset="utf-8">‌ ‌
+            ‌<title>React‌ ‌SSR</title>‌ ‌
+        ‌</head>‌ ‌
+ ‌ ‌
+        ‌<body>‌ ‌
+
+
+<div‌ ‌id="root">${reactDom}</div>‌ ‌
+
+
+‌
+<script>‌ ‌
+
+
+
+window.componentsData‌ ‌=‌ ‌${JSON.stringify(data)}‌ ‌
+
+
+</script>‌ ‌
+
+
+<script‌ ‌src="./app.bundle.js"></script>‌ ‌
+        ‌</body>‌ ‌
+        ‌</html>‌ ‌
+    ‌`‌ ‌
+}‌ ‌

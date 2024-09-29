@@ -1,0 +1,100 @@
+<div‌ ‌className="myClass">‌ ‌
+  ‌<h1>Hello‌ ‌World</h1>‌ ‌
+  ‌<p>This‌ ‌is‌ ‌a‌ ‌nice‌ ‌paragraph</p>‌ ‌
+</div>‌ ‌
+React.createElement("div",‌ ‌{‌ ‌
+  ‌className:‌ ‌"myClass"‌ ‌
+},‌ ‌React.createElement("h1",‌ ‌null,‌ ‌"Hello‌ ‌World"),‌ ‌React.createElement("p",‌ ‌null,‌ ‌"This‌ ‌is‌ ‌a‌ ‌
+nice‌ ‌paragraph"));‌ ‌
+{‌ ‌
+  ‌"type":‌ ‌"div",‌ ‌
+  ‌"key":‌ ‌null,‌ ‌
+  ‌"ref":‌ ‌null,‌ ‌
+  ‌"props":‌ ‌{‌ ‌
+    ‌"className":‌ ‌"myClass",‌ ‌
+    ‌"children":‌ ‌[‌ ‌
+      ‌{‌ ‌
+        ‌"type":‌ ‌"h1",‌ ‌
+        ‌"key":‌ ‌null,‌ ‌
+        ‌"ref":‌ ‌null,‌ ‌
+        ‌"props":‌ ‌{‌ ‌
+          ‌"children":‌ ‌"Hello‌ ‌World"‌ ‌
+        ‌}‌ ‌
+      ‌},‌ ‌
+      ‌{‌ ‌
+        ‌"type":‌ ‌"p",‌ ‌
+        ‌"key":‌ ‌null,‌ ‌
+        ‌"ref":‌ ‌null,‌ ‌
+        ‌"props":‌ ‌{‌ ‌
+          ‌"children":‌ ‌"This‌ ‌is‌ ‌a‌ ‌nice‌ ‌paragraph"‌ ‌
+        ‌}‌ ‌
+      ‌}‌ ‌
+    ‌]‌ ‌
+  ‌}‌ ‌
+}‌ ‌
+
+ReactDOM.render(<Component‌ ‌/>,‌ ‌container)‌ ‌
+ ‌
+ReactDOM.createRoot(container).render(<Component‌ ‌/>)‌ ‌
+ ‌
+
+import‌ ‌React‌ ‌from‌ ‌'react'‌ ‌
+const‌ ‌ProfilePage‌ ‌=‌ ‌React.lazy(()‌ ‌=>‌ ‌import('./ProfilePage'));‌ ‌//‌ ‌Lazy-loaded‌ ‌
+ ‌
+//‌ ‌Show‌ ‌a‌ ‌spinner‌ ‌while‌ ‌the‌ ‌profile‌ ‌is‌ ‌loading‌ ‌
+<Suspense‌ ‌fallback={<Spinner‌ ‌/>}>‌ ‌
+  ‌<ProfilePage‌ ‌/>‌ ‌
+</Suspense>‌ ‌
+React.lazy‌‌
+ProfilePage‌‌
+ ‌
+//‌ ‌This‌ ‌is‌ ‌not‌ ‌a‌ ‌Promise.‌ ‌It's‌ ‌a‌ ‌special‌ ‌object‌ ‌from‌ ‌Suspense‌ ‌integration.‌ ‌
+const‌ ‌resource‌ ‌=‌ ‌fetchProfileData();‌ ‌
+ ‌
+function‌ ‌ProfilePage()‌ ‌{‌ ‌
+  ‌return‌ ‌(‌ ‌
+    ‌<Suspense‌ ‌fallback={<h1>Loading‌ ‌profile...</h1>}>‌ ‌
+      ‌<ProfileDetails‌ ‌/>‌ ‌
+      ‌<Suspense‌ ‌fallback={<h1>Loading‌ ‌posts...</h1>}>‌ ‌
+        ‌<ProfileTimeline‌ ‌/>‌ ‌
+      ‌</Suspense>‌ ‌
+    ‌</Suspense>‌ ‌
+  ‌);‌ ‌
+}‌ ‌
+ ‌
+function‌ ‌ProfileDetails()‌ ‌{‌ ‌
+  ‌//‌ ‌Try‌ ‌to‌ ‌read‌ ‌user‌ ‌info,‌ ‌although‌ ‌it‌ ‌might‌ ‌not‌ ‌have‌ ‌loaded‌ ‌yet‌ ‌
+  ‌const‌ ‌user‌ ‌=‌ ‌resource.user.read();‌ ‌
+  ‌return‌ ‌<h1>{user.name}</h1>;‌ ‌
+}‌ ‌
+ ‌
+function‌ ‌ProfileTimeline()‌ ‌{‌ ‌
+  ‌//‌ ‌Try‌ ‌to‌ ‌read‌ ‌posts,‌ ‌although‌ ‌they‌ ‌might‌ ‌not‌ ‌have‌ ‌loaded‌ ‌yet‌ ‌
+  ‌const‌ ‌posts‌ ‌=‌ ‌resource.posts.read();‌ ‌
+  ‌return‌ ‌(‌ ‌
+    ‌<ul>‌ ‌
+      ‌{posts.map(post‌ ‌=>‌ ‌(‌ ‌
+        ‌<li‌ ‌key={post.id}>{post.text}</li>‌ ‌
+      ‌))}‌ ‌
+    ‌</ul>‌ ‌
+  ‌);‌ ‌
+}‌ ‌
+
+
+fetchProfileData:‌ ‌
+ ‌
+import‌ ‌{‌ ‌unstable_createResource‌ ‌}‌ ‌from‌ ‌'react-cache'‌ ‌
+ ‌
+function‌ ‌fetchProfileData()‌ ‌{‌ ‌
+return‌ ‌{‌ ‌
+  ‌user:‌ ‌unstable_createResource(‌ ‌
+    ‌()‌ ‌=>‌ ‌fetch('...').then(res‌ ‌=>‌ ‌res.json())‌ ‌//‌ ‌return‌ ‌a‌ ‌Promise‌ ‌
+  ‌),‌ ‌
+  ‌posts:‌ ‌unstable_createResource(‌ ‌
+    ‌()‌ ‌=>‌ ‌fetch('...').then(res‌ ‌=>‌ ‌res.json())‌ ‌//‌ ‌return‌ ‌a‌ ‌Promise‌ ‌
+ ‌}‌ ‌
+}‌ ‌
+ ‌
+unstable_createResouce‌‌
+createResource‌‌
+resource.read()‌‌
