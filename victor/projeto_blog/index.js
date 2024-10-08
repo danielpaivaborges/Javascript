@@ -1,10 +1,10 @@
 const express = require("express");
 const port = 21005;
 const connection = require("./database/database");
-const categoriesController = require('./Categories/CategoriesController')
-const articlesController = require('./Articles/ArticlesController')
-const Article = require('./Articles/Article')
-const Category = require('./Categories/Category')
+const categoriesController = require("./Categories/CategoriesController");
+const articlesController = require("./Articles/ArticlesController");
+const Article = require("./Articles/Article");
+const Category = require("./Categories/Category");
 
 //CONFIGURANDO O APLICATIVO
 const app = express();
@@ -12,8 +12,8 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(categoriesController)
-app.use(articlesController)
+app.use(categoriesController);
+app.use(articlesController);
 
 //conectando ao banco de dados
 connection
