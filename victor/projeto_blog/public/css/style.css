@@ -1,0 +1,16 @@
+.tox-statusbar__branding {
+    display: none;
+}
+
+.tox-statusbar,
+.tox-statusbar__text-container {
+    min-height: 40px;
+}
+
+.tox-promotion {
+    display: none;
+}
+
+#article_ifr {
+    background-color: rgb(241, 236, 220);
+}
