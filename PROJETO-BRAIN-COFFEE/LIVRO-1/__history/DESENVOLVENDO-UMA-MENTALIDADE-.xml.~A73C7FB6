@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" modified="2024-10-14T10:09:28.480-03:00" lasteditedby="danie" version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title>DESENVOLVENDO UMA MENTALIDADE DE CRESCIMENTO</title>
+  <body>
+    <header>
+      <para styleclass="Heading1">DESENVOLVENDO UMA MENTALIDADE DE CRESCIMENTO</para>
+    </header>
+    <para styleclass="Normal" style="text-align:center;"><image src="crescimento.jpeg" imagestyleclass="Default" scale="31.11%" width="597" height="336" styleclass="Image Caption" figurelistinclude="0"></image></para>
+    <para styleclass="Normal" style="text-align:center;"></para>
+    <para styleclass="Normal" style="text-align:center;"></para>
+  </body>
+</topic>

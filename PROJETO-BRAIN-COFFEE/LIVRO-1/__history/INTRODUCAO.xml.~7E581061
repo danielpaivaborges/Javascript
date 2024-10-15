@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../helpproject.xsl" ?>
+<topic template="Default" modified="2024-10-14T07:20:30.901-03:00" lasteditedby="danie" version="2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../helpproject.xsd">
+  <title>INTRODUÇÃO</title>
+  <body>
+    <header>
+      <para styleclass="Heading1">INTRODUÇÃO</para>
+    </header>
+    <para styleclass="Normal">ESTA É UMA PEQUENA INTRODUÇÃO</para>
+  </body>
+</topic>
