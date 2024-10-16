@@ -1,9 +1,29 @@
 <%- include('./partials/header.ejs')%>
 
     <body>
-        <%- include('./partials/navbar.ejs')%>
+        <%- include('./partials/homenavbar.ejs')%>
             <div class="container">
-                <h1>funcionando</h1>
+                <div class="card my-3">
+                    <div class="card-header">
+                        <h3>Artigos</h3>
+                    </div>
+                    <div class="card-body">
+                       <%if(articles.length == 0){%>
+                        <h6>Não há artigos nesta categoria</h6>
+                        <%}%>
+                        <%articles.forEach((article)=>{%>
+                           <div class="card my-2">
+                            <div class="card-body">
+                                <h6>
+                                    <%=article.title%>
+                                </h6>
+                                <a href="/<%=article.slug%>"><button class="btn btn-sm btn-primary">Ler Artigo</button></a>
+                            </div>
+                           </div>
+
+                            <%})%>
+                    </div>
+                </div>
             </div>
     </body>
     <%- include('./partials/footer.ejs')%>

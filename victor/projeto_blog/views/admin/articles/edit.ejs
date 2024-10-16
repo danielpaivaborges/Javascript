@@ -1,0 +1,46 @@
+<%- include('../../partials/header.ejs')%>
+
+    <body>
+        <%- include('../../partials/navbar.ejs')%>
+            <div class="container">
+                <div class="card my-3">
+                    <div class="card-header">
+                        <h2>Editar Artigo</h2>
+                    </div>
+                    <div class="card-body">
+                        <form class="my-3" action="/articles/update" method="POST">
+                            <input class="form-control my-2" type="text" name="title" id="title"
+                                placeholder="título do Artigo" value="<%=article.title%>">
+                            <textarea class="form-control mb-3" name="body" id="article"><%=article.body%></textarea>
+                            <label class="my-3" for="category">Categorias</label>
+                            <select class="form-control" name="category" id="category">
+                                <%categories.forEach((category)=>{%>
+                                    <%if(category.id==article.categoryId){%>
+                                        <option value="<%=category.id%>" selected>
+                                            <%=category.title%>
+                                        </option>
+                                        <%}else{%>
+                                            <option value="<%=category.id%>">
+                                                <%=category.title%>
+                                            </option>
+                                            <%}%>
+                                                <%})%>
+                            </select>
+                            <input type="hidden" name="id" value="<%=article.id%>">
+                            <button class="btn btn-primary my-3">Atualizar Artigo</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+    </body>
+    <script src="/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#article',
+            plugins: ["fullscreen", "emoticons", "image", "lists", "media", "preview", "save", "searchreplace", "wordcount", "autolink", "insertdatetime", "table"],
+            language: 'pt_BR'
+        })
+    </script>
+    <%- include('../../partials/footer.ejs')%>

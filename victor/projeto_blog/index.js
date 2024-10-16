@@ -28,7 +28,57 @@ connection
 //CRIANDO AS ROTAS
 //rota principal
 app.get("/", (req, res) => {
-  res.render("index");
+  Article.findAll({
+    include: [{ model: Category }],
+    order: [["id", "DESC"]]
+  }).then((articles) => {
+    Category.findAll().then((categories) => {
+      res.render("index", { articles: articles, categories: categories });
+    });
+  });
+});
+
+app.get("/:slug", (req, res) => {
+  const slug = req.params.slug;
+  Article.findOne({ where: { slug: slug } })
+    .then((article) => {
+      if (article != undefined) {
+        Category.findAll().then((categories) => {
+          res.render("article", { article: article, categories: categories });
+        });
+      } else {
+        res.redirect("/");
+      }
+    })
+    .catch(() => {
+      res.redirect("/");
+    });
+});
+
+app.get("/category/:slug", (req, res) => {
+  const slug = req.params.slug;
+  Category.findOne({
+    where: {
+      slug: slug
+    },
+    include: [{ model: Article }],
+    
+  })
+    .then((category) => {
+      if (category != undefined) {
+        Category.findAll().then((categories) => {        
+          res.render("index", {
+            articles: category.articles.reverse(),
+            categories: categories
+          });
+        });
+      } else {
+        res.redirect("/");
+      }
+    })
+    .catch(() => {
+      res.redirect("/");
+    });
 });
 
 //iniciando o servidor

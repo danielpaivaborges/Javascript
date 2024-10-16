@@ -3,8 +3,8 @@
     <body>
         <%- include('../../partials/navbar.ejs')%>
             <div class="container">
-                <h1>Categorias</h1>
-                <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
+                <h1>Artigos</h1>
+                <a class="btn btn-success" href="/admin/articles/new">Criar novo Artigo</a>
                 <hr>
                 <table class="table table-bordered">
                     <thead>
@@ -12,26 +12,30 @@
                             <th>ID</th>
                             <th>Titulo</th>
                             <th>Slug</th>
+                            <th>Categoria</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%categories.forEach((category)=>{%>
+                        <%artigos.forEach((artigo)=>{%>
                             <tr>
                                 <td>
-                                    <%=category.id%>
+                                    <%=artigo.id%>
                                 </td>
                                 <td>
-                                    <%=category.title%>
-                                        </t>
-                                <td>
-                                    <%=category.slug%>
+                                    <%=artigo.title%>
                                 </td>
                                 <td>
-                                    <a href="/admin/categories/edit/<%=category.id%>" class="btn btn-sm btn-warning">Editar</a>
-                                    <form action="/categories/delete" method="POST" style="display: inline;"
+                                    <%=artigo.slug%>
+                                </td>
+                                <td>
+                                    <%=artigo.category.title%>
+                                </td>
+                                <td>
+                                    <a href="/admin/articles/edit/<%=artigo.id%>" class="btn btn-sm btn-warning">Editar</a>
+                                    <form action="/articles/delete" method="POST" style="display: inline;"
                                         onsubmit="confirmarDelecao(event)">
-                                        <input hidden type="text" name="id" id="id" value="<%=category.id%>">
+                                        <input hidden type="text" name="id" id="id" value="<%=artigo.id%>">
                                         <button class="btn btn-sm btn-danger">Deletar</button>
                                     </form>
                                 </td>
@@ -47,7 +51,7 @@
         <script>
             function confirmarDelecao(event) {
                 event.preventDefault()
-                if (confirm('Deseja deletar essa categoria?')) {
+                if (confirm('Deseja deletar esse Artigo?')) {
                     event.target.submit()
                 }
             }

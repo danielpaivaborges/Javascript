@@ -18,7 +18,7 @@ const Article = connection.define('articles', {
 })
 
 
-// Article.belongsTo(Category)
+Article.belongsTo(Category)
 Category.hasMany(Article) 
 
 //lembrar de atualizar as duas tabelas
