@@ -3,8 +3,12 @@ const port = 21005;
 const connection = require("./database/database");
 const categoriesController = require("./Categories/CategoriesController");
 const articlesController = require("./Articles/ArticlesController");
+const usersController = require('./users/UsersController')
+
 const Article = require("./Articles/Article");
 const Category = require("./Categories/Category");
+const User = require('./users/User')
+
 
 //CONFIGURANDO O APLICATIVO
 const app = express();
@@ -14,6 +18,8 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(categoriesController);
 app.use(articlesController);
+app.use(usersController);
+
 
 //conectando ao banco de dados
 connection
