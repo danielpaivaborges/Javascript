@@ -404,7 +404,7 @@ ol {
 
 /* meu css */
 .hero-image {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner1.png");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner2.jpg");
 	height: 45%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -414,14 +414,14 @@ ol {
 
 .hero-text {
 	text-align: center;
-	color: white;
+	color: rgb(4, 4, 4);
 	padding: 30px;
-	background-color: rgba(0, 0, 0, 0.893);
+	
 }
 
 .hero-section .hero-text h2 {
 	font-size: 60px;
-	color: #ffffff;
+	color: #050404;
 	line-height: 72px;
 	font-weight: 600;
 	margin-top: 24px;
