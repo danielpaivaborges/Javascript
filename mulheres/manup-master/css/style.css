@@ -132,9 +132,10 @@ ol {
 }
 
 .set-bg {
-	background-repeat: no-repeat;
+	background-image: "../img/banner1.png";
 	background-size: cover;
-	background-position: top center;
+	background-repeat: no-repeat;
+	width: 100%;
 }
 
 .spad {
@@ -275,11 +276,13 @@ ol {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
+	background-color: rgba(255, 191, 0, 0.235);
 }
 
 .header-section.header-normal {
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e2f3d3;
 }
+
 
 .logo {
 	float: left;
@@ -396,17 +399,24 @@ ol {
 
 .hero-section {
 	padding-top: 55px;
+
 }
 
-.hero-section .hero-text {
-	padding-top: 184px;
+/* meu css */
+.hero-image {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner1.png");
+	height: 45%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
 }
 
-.hero-section .hero-text span {
-	font-size: 16px;
-	color: #f44949;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+.hero-text {
+	text-align: center;
+	color: white;
+	padding: 30px;
+	background-color: rgba(0, 0, 0, 0.893);
 }
 
 .hero-section .hero-text h2 {
