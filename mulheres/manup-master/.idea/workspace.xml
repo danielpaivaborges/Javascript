@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f924983d-fb5f-4072-91de-1e3a85f350ce" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../SITE HOJE\exportToHTML" />
+  </component>
+  <component name="ProjectId" id="1XkqYTIUJagveVni9bSGwvmWeCa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Dropbox\SITE TRANSPARENCIA\SITE HOJE" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="licitacao.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://ftp.serradasaudade.com/licitacao.html">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.licitacao.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f924983d-fb5f-4072-91de-1e3a85f350ce" name="Default" comment="" />
+      <created>1531217844641</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1531217844641</updated>
+      <workItem from="1531217847331" duration="206000" />
+      <workItem from="1531218367632" duration="115000" />
+      <workItem from="1531305882018" duration="52000" />
+      <workItem from="1534438605312" duration="677000" />
+      <workItem from="1534864776214" duration="204000" />
+      <workItem from="1534936071036" duration="48000" />
+      <workItem from="1549642112285" duration="190000" />
+      <workItem from="1581600489339" duration="789000" />
+      <workItem from="1583145669646" duration="7350000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1050" y="379" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581600601377">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state x="1050" y="379" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/62.0.2498.1080@62.0.2498.1080" timestamp="1581600601377" />
+    <state x="1091" y="296" key="FileChooserDialogImpl" timestamp="1581601253269">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state x="1091" y="296" key="FileChooserDialogImpl/62.0.2498.1080@62.0.2498.1080" timestamp="1581601253269" />
+    <state width="2477" height="274" key="GridCell.Tab.0.bottom" timestamp="1581601281030">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.0.bottom/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281030" />
+    <state width="2477" height="274" key="GridCell.Tab.0.center" timestamp="1581601281029">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.0.center/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281029" />
+    <state width="2477" height="274" key="GridCell.Tab.0.left" timestamp="1581601281029">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.0.left/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281029" />
+    <state width="2477" height="274" key="GridCell.Tab.0.right" timestamp="1581601281029">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.0.right/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281029" />
+    <state width="2477" height="274" key="GridCell.Tab.1.bottom" timestamp="1581601281030">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.1.bottom/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281030" />
+    <state width="2477" height="274" key="GridCell.Tab.1.center" timestamp="1581601281030">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.1.center/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281030" />
+    <state width="2477" height="274" key="GridCell.Tab.1.left" timestamp="1581601281030">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.1.left/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281030" />
+    <state width="2477" height="274" key="GridCell.Tab.1.right" timestamp="1581601281030">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state width="2477" height="274" key="GridCell.Tab.1.right/62.0.2498.1080@62.0.2498.1080" timestamp="1581601281030" />
+    <state x="812" y="183" key="SettingsEditor" timestamp="1583174363949">
+      <screen x="62" y="0" width="2498" height="1080" />
+    </state>
+    <state x="812" y="183" key="SettingsEditor/62.0.2498.1080@62.0.2498.1080" timestamp="1583174363949" />
+  </component>
+</project>

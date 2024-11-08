@@ -174,6 +174,7 @@ ol {
 .site-btn {
 	background-image: -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%), -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%);
 	background-image: linear-gradient(120deg, #ee8425 0%, #f9488b 100%), linear-gradient(120deg, #ee8425 0%, #f9488b 100%);
+	padding: 15px;
 }
 
 /* buttons */
@@ -404,11 +405,11 @@ ol {
 
 /* meu css */
 .hero-image {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner2.jpg");
-	height: 45%;
+	background-image: url("../img/banner1.png");
+	height: 40%;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	position: relative;
 }
 
@@ -416,7 +417,7 @@ ol {
 	text-align: center;
 	color: rgb(4, 4, 4);
 	padding: 30px;
-	
+
 }
 
 .hero-section .hero-text h2 {
@@ -791,45 +792,37 @@ ol {
 }
 
 .price-item {
+
 	background: #ffffff;
-	text-align: center;
+	text-align: left;
 	padding-top: 34px;
 	padding-bottom: 18px;
 	position: relative;
 	border-radius: 2px;
 	margin-bottom: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
 }
 
 .price-item.top-rated {
 	margin-top: -36px;
 }
 
-.price-item .tr-tag {
-	width: 28px;
-	height: 50px;
-	line-height: 38px;
-	-webkit-clip-path: polygon(100% 0%, 100% 100%, 50% 65%, 0% 100%, 0% 0%);
-	clip-path: polygon(100% 0%, 100% 100%, 50% 65%, 0% 100%, 0% 0%);
-	position: absolute;
-	right: 26px;
-	top: 0;
-}
 
-.price-item .tr-tag i {
-	color: #ffffff;
-}
 
 .price-item h4 {
 	color: #171822;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 26px;
+	text-align: center;
 }
 
 .price-item .pi-price {
 	padding-top: 16px;
 	padding-bottom: 14px;
 	margin-bottom: 38px;
+	text-align: center;
 }
 
 .price-item .pi-price h2 {
@@ -839,7 +832,7 @@ ol {
 	font-weight: 600;
 	display: inline-block;
 	position: relative;
-	padding-left: 20px;
+	padding-left: 50px;
 }
 
 .price-item .pi-price h2 span {
@@ -853,7 +846,8 @@ ol {
 	list-style: none;
 	font-size: 16px;
 	color: #6a6b7c;
-	line-height: 38px;
+	line-height: 25px;
+	margin-bottom: 15px;
 }
 
 .price-item .price-btn {
@@ -1138,12 +1132,12 @@ ol {
 
 .footer-section {
 	background: #171822;
-	padding-top: 50px;
-	padding-bottom: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .partner-logo {
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid #2f3039;
 }
 
@@ -1160,11 +1154,11 @@ ol {
 
 .footer-text {
 	text-align: center;
-	padding-top: 60px;
+	padding-top: 30px;
 }
 
 .footer-text .ft-logo {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .footer-text .ft-logo a {
@@ -1176,6 +1170,7 @@ ol {
 }
 
 .footer-text ul li {
+	color: white;
 	list-style: none;
 	display: inline-block;
 	margin-right: 52px;
@@ -1187,7 +1182,7 @@ ol {
 
 .footer-text ul li a {
 	font-size: 18px;
-	color: #a0a1b5;
+	color: #fefeff;
 	display: inline-block;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -1198,23 +1193,7 @@ ol {
 	color: #f44949;
 }
 
-.footer-text .copyright-text {
-	font-size: 14px;
-	color: #a0a1b5;
-	margin-bottom: 28px;
-}
 
-.footer-text .copyright-text i {
-	color: #f44949;
-}
-
-.footer-text .copyright-text a {
-	color: #a0a1b5;
-}
-
-.footer-text .copyright-text a:hover {
-	color: #f44949;
-}
 
 .footer-text .ft-social a {
 	display: inline-block;
