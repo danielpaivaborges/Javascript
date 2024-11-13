@@ -121,7 +121,7 @@ ol {
 .section-title h2 {
 	font-size: 40px;
 	font-weight: 700;
-	color: #171822;
+	color: #ffffff;
 	margin-bottom: 10px;
 }
 
@@ -210,7 +210,7 @@ ol {
 	top: 0;
 	left: 0;
 	z-index: 999999;
-	background-color: black;
+	background-color: white;
 }
 
 .loader {
@@ -405,8 +405,8 @@ ol {
 
 /* meu css */
 .hero-image {
-	background-image: url("../img/banner1.png");
-	height: 40%;
+	background-image: url("../img/banner1.jpeg");
+	height: 30%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -775,8 +775,8 @@ ol {
 -----------------------*/
 
 .pricing-section {
-	padding-top: 90px;
-	padding-bottom: 80px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .pricing-section .section-title {
@@ -799,7 +799,7 @@ ol {
 	padding-bottom: 18px;
 	position: relative;
 	border-radius: 2px;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 	padding-left: 40px;
 	padding-right: 40px;
 }
@@ -2559,11 +2559,11 @@ ol {
 }
 
 .pulsar {
-	-webkit-animation: pulse 2s ease infinite;
-	-moz-animation: pulse 2s ease infinite;
-	-ms-animation: pulse 2s ease infinite;
-	-o-animation: pulse 2s ease infinite;
-	animation: pulse 2s ease infinite;
+	-webkit-animation: pulse 3s ease infinite;
+	-moz-animation: pulse 3s ease infinite;
+	-ms-animation: pulse 3s ease infinite;
+	-o-animation: pulse 3s ease infinite;
+	animation: pulse 3s ease infinite;
 }
 
 
